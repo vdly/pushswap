@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 23:04:54 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/29 18:45:55 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/09/30 21:32:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	main(int ac, char **av)
 	t_list	**head;
 	t_list	*node;	
 	int		i;
+	int		num;
 
 	i = 2;
 	if (ac <= 1)
 		return(printf("error"));
-	node = lst_new(atoi(av[i++]));
+	node = malloc(sizeof(t_list));
+	node->number = atoi(av[i]);
 	head = &node;
 	while (ac > 1)
 	{
