@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 19:35:55 by jodehii          ###   ########.fr       */
+/*   Created: 2026/09/14 00:39:19 by jodehii           #+#    #+#             */
+/*   Updated: 2026/09/15 22:38:29 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked.h"
+#include "../ft_printf.h"
 
-t_pslist	*lst_new(int number)
+int	print_u(unsigned int dec)
 {
-	t_pslist	*new;
+	int	len;
 
-	new = malloc(sizeof(t_pslist));
-	if (!new)
-		return (0);
-	new->number = number;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+	len = 0;
+	if (dec < 10)
+		len += print_c(dec + '0');
+	else
+	{
+		len += print_u(dec / 10);
+		len += print_u(dec % 10);
+	}
+	return (len);
 }

@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 14:42:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/26 21:27:31 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/03 19:36:02 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-unsigned int	lst_size(t_list *lst)
+unsigned int	lst_size(t_pslist *lst)
 {
 	unsigned int	size;
 

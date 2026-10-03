@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 19:35:55 by jodehii          ###   ########.fr       */
+/*   Created: 2026/09/13 21:41:20 by jodehii           #+#    #+#             */
+/*   Updated: 2026/09/13 21:46:56 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked.h"
+#include "../ft_printf.h"
 
-t_pslist	*lst_new(int number)
+int	print_c(int c)
 {
-	t_pslist	*new;
-
-	new = malloc(sizeof(t_pslist));
-	if (!new)
-		return (0);
-	new->number = number;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+	return (write(1, &c, 1));
 }

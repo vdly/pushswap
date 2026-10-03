@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 23:04:54 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/30 21:32:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/03 19:37:17 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	main(int ac, char **av)
 {
-	t_list	**head;
-	t_list	*node;	
-	int		i;
-	int		num;
+	t_pslist	**head;
+	t_pslist	*node;
+	int			i;
+	int			num;
 
 	i = 2;
 	if (ac <= 1)
-		return(printf("error"));
+		return (printf("error"));
 	node = malloc(sizeof(t_list));
 	node->number = atoi(av[i]);
 	head = &node;
@@ -36,5 +36,4 @@ int	main(int ac, char **av)
 	printf("node->num : %d\n", node->number);
 	printf("node->num : %d\n", node->next->number);
 	printf("node->num : %d\n", node->next->next->number);
-	
 }

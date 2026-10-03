@@ -6,16 +6,16 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 20:09:21 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/26 21:29:12 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/03 19:35:10 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void	lst_clear(t_list **lst)
+void	lst_clear(t_pslist **lst)
 {
-	t_list	*temp;
-	t_list	*next;
+	t_pslist	*temp;
+	t_pslist	*next;
 
 	if (!lst)
 		return ;

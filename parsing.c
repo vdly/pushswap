@@ -6,53 +6,111 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 21:33:13 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/30 22:02:17 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/03 22:44:39 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists/linked.h"
+#include "push_swap.h"
 
-int	is_valid(char *str)
+long	ft_atol(char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	long	result;
+	int		negative;
 
 	i = 0;
-	sign = 0;
-	if (str[i] == '\0')
-		return (0);
+	result = 0;
+	negative = 1;
 	if (str[i] == '-' || str[i] == '+')
-		sign++;
-	while (str[i])
 	{
-		while (str[i] >= '0' && str[i] <= '9')
-			i++;
-		if (str[i] == '-' || str[i] == '+')
-			sign++;
-		else
-			return (0);
-	}
-	if (sign > 1)
-		return (0);
-}
-
-int	parsing(char *str)
-{
-	int	sign;
-	int	i;
-	
-	i = 0;
-	sign = 0;
-	if (str[i] == '\0')
-		return (0);
-	while (str[i])
-	{
-		if (!isnum(str[i]))
-			return (0);
-		else if (str[i] == '-' || str[i] == '+')
-			sign++;
+		if (str[i] == '-')
+			negative = -1;
 		i++;
 	}
-	if (sign > 1)
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (result * negative);
+}
+
+int	only_num(char *str)
+{
+	int	i;
+	int	sign;
+
+	i = 0;
+	sign = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] == '\0')
 		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	duplicates(char **argv, int index, long current_num)
+{
+	index++;
+	while (argv[index])
+	{
+		if (current_num == ft_atol(argv[index]))
+			return (0);
+		index++;
+	}
+	return (1);
+}
+
+int	parsing(int argc, char **argv, t_pslist **stack_a)
+{
+	int		index;
+	long	current_num;
+
+	index = 1;
+	while (index < argc)
+	{
+		current_num = ft_atol(argv[index]);
+		if (!only_num(argv[index]))
+			return (0);
+		if (!duplicates(argv, index, current_num))
+			return (0);
+		if (current_num < INT_MIN || current_num > INT_MAX)
+			return (0);
+		index++;
+	}
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	t_pslist	*stack_a;
+	int			i;
+
+	i = 1;
+	stack_a = NULL;
+	if (argc < 2)
+		return (0);
+	if (!parsing(argc, argv, &stack_a))
+	{
+		lst_clear(&stack_a);
+		ft_printf("Error\n");
+		return (1);
+	}
+	else
+		while (argv[i])
+			add_back(&stack_a, lst_new(ft_atoi(argv[i++])));
+	t_pslist *temp = stack_a;
+    while (temp)
+    {
+        ft_printf("%d\n", temp->number);
+        temp = temp->next;
+    }
+    lst_clear(&stack_a);
+    return (0);
 }
