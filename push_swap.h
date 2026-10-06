@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:26:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 20:14:01 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/06 19:27:39 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "linked_lists/linked.h"
 # include "libft_printf/ft_printf.h"
 # include <limits.h>
+# include <stdbool.h>
 
 #endif

@@ -1,0 +1,28 @@
+error(stack)
+  lst_clear(stack)
+  ft_printf("Error\n")
+  exit(1)
+
+parse(argc, argv) -> stack:
+  loop through each string:
+    if argv[i] is "--simple" or "--complex" or "--bench":
+      continue to next string
+    else if not only_num:
+      error(stack)
+    if duplicate:
+      error(stack)
+    current_num = ft_atol(string)
+    if not integer:
+      error(stack)
+
+    // number is valid at this point
+    add_back(stack, number)
+
+
+return stack  
+  
+  
+main(argc, argv) -> int
+stack = parse(argc, argv)
+  // stack is valid and usable at this point cus it 
+  would have exited the program in parse() otherwise

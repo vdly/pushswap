@@ -6,11 +6,58 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 21:33:13 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 22:44:39 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/06 18:00:47 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	error(t_pslist *stack)
+{
+	lst_clear(&stack);
+	ft_printf("Error\n");
+	return (0);
+}
+
+int	parse(int argc, char **argv, t_pslist **stack)
+{
+	int		index;
+	long	current_num;
+
+	index = 1;
+	if (selector(argv))
+		index++;
+	while (index < argc)
+	{
+		current_num = ft_atol(argv[index]);
+		if (!only_num(argv[index]))
+			return (0);
+		if (!duplicates(argv, index, current_num))
+			return (0);
+		if (current_num < INT_MIN || current_num > INT_MAX)
+			return (0);
+		index++;
+	}
+	
+	return (1);
+}
+
+int	selector(char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strncmp(argv[1], "--simple", ft_strlen(argv[1])))
+	{}
+	else if (ft_strncmp(argv[1], "--complex", ft_strlen(argv[1])))
+	{}
+	else if (ft_strncmp(argv[1], "--adaptive", ft_strlen(argv[1])))
+	{}
+	else if (ft_strncmp(argv[1], "--bench", ft_strlen(argv[1])))
+	{}
+	else
+		return (0);
+}
 
 long	ft_atol(char *str)
 {
@@ -67,25 +114,25 @@ int	duplicates(char **argv, int index, long current_num)
 	return (1);
 }
 
-int	parsing(int argc, char **argv, t_pslist **stack_a)
-{
-	int		index;
-	long	current_num;
+// int	parsing(int argc, char **argv, t_pslist **stack_a)
+// {
+// 	int		index;
+// 	long	current_num;
 
-	index = 1;
-	while (index < argc)
-	{
-		current_num = ft_atol(argv[index]);
-		if (!only_num(argv[index]))
-			return (0);
-		if (!duplicates(argv, index, current_num))
-			return (0);
-		if (current_num < INT_MIN || current_num > INT_MAX)
-			return (0);
-		index++;
-	}
-	return (1);
-}
+// 	index = 1;
+// 	while (index < argc)
+// 	{
+// 		current_num = ft_atol(argv[index]);
+// 		if (!only_num(argv[index]))
+// 			return (0);
+// 		if (!duplicates(argv, index, current_num))
+// 			return (0);
+// 		if (current_num < INT_MIN || current_num > INT_MAX)
+// 			return (0);
+// 		index++;
+// 	}
+// 	return (1);
+// }
 
 int	main(int argc, char **argv)
 {
