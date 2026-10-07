@@ -6,13 +6,13 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 00:24:39 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/07 22:54:08 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ra(t_list **stacka)
+void	ra(t_pslist **stacka)
 {
-	t_list	*temp;
+	t_pslist	*temp;
 	
 	if (!stacka || !*stacka || !((*stacka) -> next))
 		return ;
@@ -25,9 +25,9 @@ void	ra(t_list **stacka)
 	add_back(stacka,temp);
 }
 
-void	rb(t_list **stackb)
+void	rb(t_pslist **stackb)
 {
-	t_list	*temp;
+	t_pslist	*temp;
 	
 	if (!stackb || !*stackb || !((*stacka) -> next))
 		return;
@@ -40,7 +40,7 @@ void	rb(t_list **stackb)
 	add_back(stackb,temp);
 }
 
-void	rr(t_list **stacka, t_list **stackb)
+void	rr(t_pslist **stacka, t_pslist **stackb)
 {
 	ra(stacka);
 	rb(stackb);
