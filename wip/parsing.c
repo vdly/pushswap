@@ -6,23 +6,23 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 21:33:13 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/06 18:00:47 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(t_pslist *stack)
+int error(t_list *stack)
 {
 	lst_clear(&stack);
 	ft_printf("Error\n");
 	return (0);
 }
 
-int	parse(int argc, char **argv, t_pslist **stack)
+int parse(int argc, char **argv, t_list **stack)
 {
-	int		index;
-	long	current_num;
+	int index;
+	long current_num;
 
 	index = 1;
 	if (selector(argv))
@@ -38,32 +38,36 @@ int	parse(int argc, char **argv, t_pslist **stack)
 			return (0);
 		index++;
 	}
-	
+
 	return (1);
 }
 
-int	selector(char **argv)
+int selector(char **argv)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (ft_strncmp(argv[1], "--simple", ft_strlen(argv[1])))
-	{}
+	{
+	}
 	else if (ft_strncmp(argv[1], "--complex", ft_strlen(argv[1])))
-	{}
+	{
+	}
 	else if (ft_strncmp(argv[1], "--adaptive", ft_strlen(argv[1])))
-	{}
+	{
+	}
 	else if (ft_strncmp(argv[1], "--bench", ft_strlen(argv[1])))
-	{}
+	{
+	}
 	else
 		return (0);
 }
 
-long	ft_atol(char *str)
+long ft_atol(char *str)
 {
-	int		i;
-	long	result;
-	int		negative;
+	int i;
+	long result;
+	int negative;
 
 	i = 0;
 	result = 0;
@@ -82,10 +86,10 @@ long	ft_atol(char *str)
 	return (result * negative);
 }
 
-int	only_num(char *str)
+int only_num(char *str)
 {
-	int	i;
-	int	sign;
+	int i;
+	int sign;
 
 	i = 0;
 	sign = 0;
@@ -102,7 +106,7 @@ int	only_num(char *str)
 	return (1);
 }
 
-int	duplicates(char **argv, int index, long current_num)
+int duplicates(char **argv, int index, long current_num)
 {
 	index++;
 	while (argv[index])
@@ -114,7 +118,7 @@ int	duplicates(char **argv, int index, long current_num)
 	return (1);
 }
 
-// int	parsing(int argc, char **argv, t_pslist **stack_a)
+// int	parsing(int argc, char **argv, t_list **stack_a)
 // {
 // 	int		index;
 // 	long	current_num;
@@ -134,10 +138,10 @@ int	duplicates(char **argv, int index, long current_num)
 // 	return (1);
 // }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_pslist	*stack_a;
-	int			i;
+	t_list *stack_a;
+	int i;
 
 	i = 1;
 	stack_a = NULL;
@@ -152,12 +156,12 @@ int	main(int argc, char **argv)
 	else
 		while (argv[i])
 			add_back(&stack_a, lst_new(ft_atoi(argv[i++])));
-	t_pslist *temp = stack_a;
-    while (temp)
-    {
-        ft_printf("%d\n", temp->number);
-        temp = temp->next;
-    }
-    lst_clear(&stack_a);
-    return (0);
+	t_list *temp = stack_a;
+	while (temp)
+	{
+		ft_printf("%d\n", temp->number);
+		temp = temp->next;
+	}
+	lst_clear(&stack_a);
+	return (0);
 }

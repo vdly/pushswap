@@ -6,17 +6,17 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/08/21 01:06:04 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_libft_list *ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_libft_list *new;
 
-	new = malloc(sizeof(t_list));
+	new = malloc(sizeof(t_libft_list));
 	if (!new)
 		return (0);
 	new->content = content;
@@ -26,8 +26,8 @@ t_list	*ft_lstnew(void *content)
 
 // int	main(void)
 // {
-// 	t_list	*current_node;
-// 	t_list	*next_node;
+// 	t_libft_list	*current_node;
+// 	t_libft_list	*next_node;
 // 	char	*str1 = "apple pie";
 // 	char	*str2 = "choco pie";
 

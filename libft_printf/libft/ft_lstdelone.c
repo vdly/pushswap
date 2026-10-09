@@ -6,18 +6,18 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 19:02:17 by jodehii           #+#    #+#             */
-/*   Updated: 2026/08/21 20:14:00 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void ft_lstdelone(t_libft_list *lst, void (*del)(void *))
 {
 	if (!lst)
-		return ;
+		return;
 	del(lst->content);
-	free (lst);
+	free(lst);
 }
 
 // void	del(void *content)
@@ -27,10 +27,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 
 // int	main(void)
 // {
-// 	t_list	*head = NULL;
-// 	t_list	*node1 = ft_lstnew(ft_strdup("peanut"));
-// 	t_list	*node2 = ft_lstnew(ft_strdup("butter"));
-// 	t_list	*node3 = ft_lstnew(ft_strdup("kaya"));
+// 	t_libft_list	*head = NULL;
+// 	t_libft_list	*node1 = ft_lstnew(ft_strdup("peanut"));
+// 	t_libft_list	*node2 = ft_lstnew(ft_strdup("butter"));
+// 	t_libft_list	*node3 = ft_lstnew(ft_strdup("kaya"));
 
 // 	ft_lstadd_back(&head, node1);
 // 	ft_lstadd_back(&head, node2);

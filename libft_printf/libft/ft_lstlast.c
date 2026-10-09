@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 17:52:25 by jodehii           #+#    #+#             */
-/*   Updated: 2026/08/21 18:15:55 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list	*lst)
+t_libft_list *ft_lstlast(t_libft_list *lst)
 {
 	if (!lst)
 		return (0);
@@ -23,12 +23,12 @@ t_list	*ft_lstlast(t_list	*lst)
 
 // int	main(void)
 // {
-// 	t_list	*head = NULL;
-// 	t_list	*current;
-// 	t_list	*temp;
-// 	t_list	*node1 = ft_lstnew("spagee");
-// 	t_list	*node2 = ft_lstnew("chagee");
-// 	t_list	*node3 = ft_lstnew("grapefruit");
+// 	t_libft_list	*head = NULL;
+// 	t_libft_list	*current;
+// 	t_libft_list	*temp;
+// 	t_libft_list	*node1 = ft_lstnew("spagee");
+// 	t_libft_list	*node2 = ft_lstnew("chagee");
+// 	t_libft_list	*node3 = ft_lstnew("grapefruit");
 // 	int		i = 1;
 
 // 	ft_lstadd_front(&head, node3);

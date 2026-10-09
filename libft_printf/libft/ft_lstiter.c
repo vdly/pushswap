@@ -6,16 +6,16 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 17:04:48 by jodehii           #+#    #+#             */
-/*   Updated: 2026/08/22 19:21:26 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void ft_lstiter(t_libft_list *lst, void (*f)(void *))
 {
 	if (!lst)
-		return ;
+		return;
 	while (lst != NULL)
 	{
 		f(lst->content);
@@ -43,10 +43,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 
 // int	main(void)
 // {
-// 	t_list	*head = NULL;
-// 	t_list	*node1 = ft_lstnew(ft_strdup("peanut"));
-// 	t_list	*node2 = ft_lstnew(ft_strdup("butter"));
-// 	t_list	*node3 = ft_lstnew(ft_strdup("kaya"));
+// 	t_libft_list	*head = NULL;
+// 	t_libft_list	*node1 = ft_lstnew(ft_strdup("peanut"));
+// 	t_libft_list	*node2 = ft_lstnew(ft_strdup("butter"));
+// 	t_libft_list	*node3 = ft_lstnew(ft_strdup("kaya"));
 
 // 	ft_lstadd_back(&head, node1);
 // 	ft_lstadd_back(&head, node2);

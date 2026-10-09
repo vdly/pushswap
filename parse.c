@@ -6,23 +6,23 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:35:07 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(t_pslist **stack)
+void error(t_list **stack)
 {
 	lst_clear(stack);
 	ft_printf("Error\n");
-	exit (1);
+	exit(1);
 }
 
-int	only_num(char *str)
+int only_num(char *str)
 {
-	int	i;
-	int	sign;
+	int i;
+	int sign;
 
 	i = 0;
 	sign = 0;
@@ -39,7 +39,7 @@ int	only_num(char *str)
 	return (1);
 }
 
-int	duplicates(char **argv, int index, long current_num)
+int duplicates(char **argv, int index, long current_num)
 {
 	index++;
 	while (argv[index])
@@ -51,7 +51,7 @@ int	duplicates(char **argv, int index, long current_num)
 	return (1);
 }
 
-bool	selector(char **argv)
+bool selector(char **argv)
 {
 	// ft_strncmp(argv[1], "--simple") == 0 if match
 	if (!ft_strcmp(argv[1], "--simple"))
@@ -74,10 +74,10 @@ bool	selector(char **argv)
 		return (false);
 }
 
-void	parse(int argc, char **argv, t_pslist **stack)
+void parse(int argc, char **argv, t_list **stack)
 {
-	int		index;
-	long	current_num;
+	int index;
+	long current_num;
 
 	if (selector(argv))
 		index = 2;
@@ -99,7 +99,7 @@ void	parse(int argc, char **argv, t_pslist **stack)
 
 // int	main(int argc, char **argv)
 // {
-// 	t_pslist	*stack_a;
+// 	t_list	*stack_a;
 // 	int			i;
 
 // 	i = 1;
@@ -107,7 +107,7 @@ void	parse(int argc, char **argv, t_pslist **stack)
 // 	if (argc < 2)
 // 		return (0);
 // 	parse(argc, argv, &stack_a);
-// 	t_pslist *temp = stack_a;
+// 	t_list *temp = stack_a;
 // 	while (temp)
 // 	{
 // 		ft_printf("%d\n", temp->number);

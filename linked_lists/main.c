@@ -6,18 +6,18 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 23:04:54 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/03 19:37:17 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	t_pslist	**head;
-	t_pslist	*node;
-	int			i;
-	int			num;
+	t_list **head;
+	t_list *node;
+	int i;
+	int num;
 
 	i = 2;
 	if (ac <= 1)

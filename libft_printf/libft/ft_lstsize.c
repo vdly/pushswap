@@ -6,15 +6,15 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 14:42:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/08/21 17:45:22 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_lstsize(t_list *lst)
+unsigned int ft_lstsize(t_libft_list *lst)
 {
-	unsigned int	size;
+	unsigned int size;
 
 	size = 0;
 	if (lst != NULL)
@@ -31,17 +31,17 @@ unsigned int	ft_lstsize(t_list *lst)
 
 // int	main(void)
 // {
-// 	t_list	*head = NULL;
-// 	t_list	*node1 = ft_lstnew("OOLONG");
-// 	t_list	*node2 = ft_lstnew("TIEGUANYIN");
-// 	t_list	*node3 = ft_lstnew("JASMINE");
-// 	t_list	*node4 = ft_lstnew("PUER");
+// 	t_libft_list	*head = NULL;
+// 	t_libft_list	*node1 = ft_lstnew("OOLONG");
+// 	t_libft_list	*node2 = ft_lstnew("TIEGUANYIN");
+// 	t_libft_list	*node3 = ft_lstnew("JASMINE");
+// 	t_libft_list	*node4 = ft_lstnew("PUER");
 
 // 	ft_lstadd_front(&head, node1);
 // 	ft_lstadd_front(&head, node2);
 // 	ft_lstadd_front(&head, node3);
 // 	ft_lstadd_front(&head, node4);
-// 	t_list	*current = head;
+// 	t_libft_list	*current = head;
 // 	int		i = 1;
 // 	while (current != NULL)
 // 	{
