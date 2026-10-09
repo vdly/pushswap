@@ -6,7 +6,7 @@
 #    By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/03 21:32:05 by jodehii          ###   ########.fr        #
+#    Updated: 2026/10/07 16:03:43 by jodehii          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,10 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		libft_printf/srcs/print_c.c	libft_printf/srcs/print_dec.c \
 		libft_printf/srcs/print_p.c	libft_printf/srcs/print_s.c \
 		libft_printf/srcs/print_u.c	libft_printf/srcs/print_x.c \
-		linked_lists/*.c
+		linked_lists/add_back.c linked_lists/add_front.c \
+		linked_lists/del_one.c linked_lists/lst_clear.c \
+		linked_lists/lst_last.c linked_lists/lst_new.c \
+		linked_lists/lst_new.c linked_lists/lst_size.c
 OBJ		= $(SRCS:.c=.o)
 
 %.o : %.c
