@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/11 22:42:27 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ bool selector(char **argv)
 
 void parse(int argc, char **argv, t_list **stack)
 {
-	int index;
-	long current_num;
+	int		index;
+	long	current_num;
 
 	if (selector(argv))
 		index = 2;
