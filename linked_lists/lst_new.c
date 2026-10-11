@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/11 22:32:08 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ t_list *lst_new(int number)
 	new->number = number;
 	new->prev = NULL;
 	new->next = NULL;
+	new->index = 0;
 	return (new);
 }
