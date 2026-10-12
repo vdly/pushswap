@@ -6,26 +6,26 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 18:36:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/11 22:31:18 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/12 18:46:41 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKED_H
-#define LINKED_H
+# define LINKED_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "../push_swap.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "../push_swap.h"
 
-typedef struct p_list
+typedef struct ps_list
 {
-	int number;
-	int	index;
-	struct p_list *next;
-	struct p_list *prev;
+	int				number;
+	int				index;
+	struct s_list	*prev;
+	struct s_list	*next;
 
-} t_list;
+}	t_list;
 
 void	add_back(t_list **lst, t_list *new);
 void	add_front(t_list **lst, t_list *new);

@@ -6,15 +6,15 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/11 22:32:08 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/12 18:48:48 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-t_list *lst_new(int number)
+t_list	*lst_new(int number)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
@@ -22,6 +22,6 @@ t_list *lst_new(int number)
 	new->number = number;
 	new->prev = NULL;
 	new->next = NULL;
-	new->index = 0;
+	new->index = -1;
 	return (new);
 }

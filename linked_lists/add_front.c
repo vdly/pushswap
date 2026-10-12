@@ -6,18 +6,20 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:53:18 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:40:33 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/12 17:22:22 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void add_front(t_list **lst, t_list *new)
+void	add_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
-		return;
+		return ;
 	new->next = *lst;
 	new->prev = NULL;
+	if (*lst)
+		(*lst)->prev = new;
 	*lst = new;
 }
 

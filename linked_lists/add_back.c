@@ -6,22 +6,22 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 18:17:57 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/11 22:32:27 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/12 18:49:03 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void add_back(t_list **lst, t_list *new)
+void	add_back(t_list **lst, t_list *new)
 {
-	t_list *link;
+	t_list	*link;
 
 	if (!lst || !new)
-		return;
+		return ;
 	if (*lst == NULL)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	link = lst_last(*lst);
 	new->prev = link;
