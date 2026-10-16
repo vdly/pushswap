@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:26:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/13 16:17:27 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/16 20:26:32 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ bool	selector(char **argv);
 int		only_num(char *str);
 int		duplicates(char **argv, int index, long current_num);
 void	parse(int argc, char **argv, t_list **stack);
+void	indexing(t_list *stack);
 
 #endif

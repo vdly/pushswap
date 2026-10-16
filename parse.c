@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/13 16:16:23 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/16 20:25:41 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ void	error(t_list **stack)
 int	only_num(char *str)
 {
 	int	i;
-	int	sign;
 
 	i = 0;
-	sign = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')

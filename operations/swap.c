@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/14 21:54:30 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/16 17:59:49 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	sa(t_list **a)
 	t_list	*node2;
 	t_list	*node3;
 
+	if (!a || !*a || !(*a)->next)
+		return ;
 	node1 = *a;
 	node2 = (*a)->next;
 	node3 = node2->next;
-	if (!a || !*a || !(*a)->next)
-		return ;
 	*a = node2;
 	node2->prev = NULL;
 	node2->next = node1;
@@ -38,11 +38,11 @@ void	sa(t_list **b)
 	t_list	*node2;
 	t_list	*node3;
 
+	if (!b || !*b || !(*b)->next)
+		return ;
 	node1 = *b;
 	node2 = (*b)->next;
 	node3 = node2->next;
-	if (!b || !*b || !(*b)->next)
-		return ;
 	*b = node2;
 	node2->prev = NULL;
 	node2->next = node1;
