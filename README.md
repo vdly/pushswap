@@ -8,4 +8,10 @@
 ### Instructions
 
 
-### Reseources
+### Resources
+
+* https://www.geeksforgeeks.org/c/bitwise-operators-in-c-cpp/
+* https://www.w3schools.com/c/c_bitwise_operators.php
+* https://www.geeksforgeeks.org/c/c-program-for-radix-sort/
+* https://www.programiz.com/dsa/radix-sort
+* https://www.desmos.com/calculator/pqjldgfele
