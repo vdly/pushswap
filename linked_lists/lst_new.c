@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/29 17:39:55 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 00:03:13 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-t_list	*lst_new(int number)
+t_pslist	*lst_new(int number)
 {
-	t_list	*new;
+	t_pslist	*new;
 
-	new = malloc(sizeof(t_list));
+	new = malloc(sizeof(t_pslist));
 	if (!new)
 		return (0);
 	new->number = number;

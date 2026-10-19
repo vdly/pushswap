@@ -10,29 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+t_pslist	*lst_new(int number);
+
 float	compute_disorder(t_pslist	**stacka)
 {
 	float	mistakes;
 	float	total_pairs;
-	t_pslist	*i;
-	t_pslist	*j;
+	t_pslist	*current;
+	t_pslist	*nextdigit;
 
 	mistakes = 0;
 	total_pairs = 0;
-	i = *stacka;
+	current = *stacka;
 	if (stacka == NULL || *stacka == NULL || (*stacka)->next == NULL)
 		return (0.0);
-	while (i != NULL)
+	while (current != NULL)
 	{
-		j = i -> next;
-		while (j != NULL)
+		nextdigit = current -> next;
+		while (nextdigit != NULL)
 		{
 			total_pairs++;
-			if ((i->content) > (j->content))
+			if ((current->number) > (nextdigit->number))
 				mistakes++;
-			j = j -> next;
+			nextdigit = nextdigit -> next;
 		}
-		i = i -> next;
+		current = current -> next;
 	}
 	return (mistakes/total_pairs);
 }
+
+/*int main(void)
+{
+    t_pslist *stack_a;
+    t_pslist *curr;
+    float    disorder_score;
+
+    stack_a = NULL;
+
+    // Test with an unsorted stack: 4 -> 2 -> 1 -> 3
+    stack_a = lst_new(4);
+    add_back(&stack_a, lst_new(2));
+    add_back(&stack_a, lst_new(1));
+    add_back(&stack_a, lst_new(3));
+
+    printf("--- Stack A Contents ---\n");
+    curr = stack_a;
+    while (curr)
+    {
+        // Change 'number' to 'content' if your struct uses content instead
+        printf("%d -> ", curr->number);
+        curr = curr->next;
+    }
+    printf("NULL\n\n");
+
+    // Compute and print the disorder metric
+    disorder_score = compute_disorder(&stack_a);
+    printf("Disorder Metric Score: %.4f (0.0 = fully sorted, 1.0 = fully reversed)\n", disorder_score);
+
+    return (0);
+}*/

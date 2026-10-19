@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   del_one.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 19:02:17 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/29 18:51:23 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 23:55:54 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void	del_one(t_list *lst)
+void	del_one(t_pslist *lst)
 {
 	if (!lst)
 		return ;
-	free (lst->number);
 	free (lst);
 }

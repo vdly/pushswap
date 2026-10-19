@@ -6,9 +6,12 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/07 22:54:08 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/19 21:14:48 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+#include <stdio.h>
 
 void	ra(t_pslist **stacka)
 {
@@ -23,13 +26,14 @@ void	ra(t_pslist **stacka)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_back(stacka,temp);
+	printf("ra\n");
 }
 
 void	rb(t_pslist **stackb)
 {
 	t_pslist	*temp;
 	
-	if (!stackb || !*stackb || !((*stacka) -> next))
+	if (!stackb || !*stackb || !((*stackb) -> next))
 		return;
 	temp = *stackb;
 	*stackb = temp -> next;
@@ -38,6 +42,7 @@ void	rb(t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_back(stackb,temp);
+	printf("rb\n");
 }
 
 void	rr(t_pslist **stacka, t_pslist **stackb)

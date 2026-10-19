@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lst_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 14:42:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/26 21:27:31 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 00:03:19 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-unsigned int	lst_size(t_list *lst)
+unsigned int	lst_size(t_pslist *lst)
 {
 	unsigned int	size;
 

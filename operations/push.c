@@ -6,11 +6,12 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/07 22:54:00 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/19 21:14:38 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	pa(t_pslist **stacka, t_pslist **stackb)
 {
@@ -26,6 +27,7 @@ void	pa(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stacka,temp);
+	printf("pa\n");
 }
 
 void	pb(t_pslist **stacka, t_pslist **stackb)
@@ -42,6 +44,7 @@ void	pb(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stackb,temp);
+	printf("pb\n");
 }
 
 

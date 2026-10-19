@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lst_last.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 17:52:25 by jodehii           #+#    #+#             */
-/*   Updated: 2026/09/26 21:27:41 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/09 00:03:09 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-t_list	*lst_last(t_list *lst)
+t_pslist	*lst_last(t_pslist *lst)
 {
 	if (!lst)
 		return (0);
