@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-float	compute_disorder(t_pslist	**stacka)
+float	compute_disorder(t_list	**stacka)
 {
 	float	mistakes;
 	float	total_pairs;
-	t_pslist	*current;
-	t_pslist	*nextdigit;
+	t_list	*current;
+	t_list	*nextdigit;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -41,8 +41,8 @@ float	compute_disorder(t_pslist	**stacka)
 
 /*int main(void)
 {
-    t_pslist *stack_a;
-    t_pslist *curr;
+    t_list *stack_a;
+    t_list *curr;
     float    disorder_score;
 
     stack_a = NULL;
