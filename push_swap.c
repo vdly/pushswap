@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 21:35:04 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:25:09 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,11 @@ void	selection(char **argv, t_list **a, t_list **b)
 	if (!sorted(*a))
 	{
 		if (!ft_strcmp(argv[1], "--simple"))
-		{
-			return ;
-		}
+			simple(&(*a), &(*b));
 		else if (!ft_strcmp(argv[1], "--medium"))
-		{
-			return ;
-		}
+			medium(&(*a), &(*b));
 		else if (!ft_strcmp(argv[1], "--complex"))
-				radix_sort(&(*a), &(*b));
+			radix_sort(&(*a), &(*b));
 		else if (!ft_strcmp(argv[1], "--adaptive"))
 		{
 			return ;

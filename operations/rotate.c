@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 00:58:37 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:56:40 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
-static void	rotate(t_pslist **stack)
+static void	rotate(t_list **stack)
 {
-	t_pslist	*temp;
+	t_list	*temp;
 	if (!stack || !*stack || !((*stack) -> next))
 		return ;
 	temp = (*stack);
@@ -25,45 +24,45 @@ static void	rotate(t_pslist **stack)
 	temp -> next = NULL;
 	add_back(stack,temp);
 }
-void	ra(t_pslist **stacka)
+void	ra(t_list **stacka)
 {
-	t_bench		*bench;
+	// t_bench		*bench;
 
-	bench = get_bench();
+	// bench = get_bench();
 	rotate(stacka);
-	if (bench != NULL && bench->active == 1)//main
-	{
-		bench->ra++;
-		bench->total_ops++;
-	}
+	// if (bench != NULL && bench->active == 1)//main
+	// {
+	// 	bench->ra++;
+	// 	bench->total_ops++;
+	// }
 	ft_printf("ra\n");
 }
 
-void	rb(t_pslist **stackb)
+void	rb(t_list **stackb)
 {
-	t_bench		*bench;
+	// t_bench		*bench;
 
-	bench = get_bench();
+	// bench = get_bench();
 	rotate(stackb);
-	if (bench != NULL && bench->active == 1)//main
-	{
-		bench->rb++;
-		bench->total_ops++;
-	}
+	// if (bench != NULL && bench->active == 1)//main
+	// {
+	// 	bench->rb++;
+	// 	bench->total_ops++;
+	// }
 	ft_printf("rb\n");
 }
 
-void	rr(t_pslist **stacka, t_pslist **stackb)
+void	rr(t_list **stacka, t_list **stackb)
 {
-	t_bench		*bench;
+	// t_bench		*bench;
 
-	bench = get_bench();
+	// bench = get_bench();
 	rotate(stacka);
 	rotate(stackb);
-	if (bench != NULL && bench->active == 1)//main
-	{
-		bench->rr++;
-		bench->total_ops++;
-	}
+	// if (bench != NULL && bench->active == 1)//main
+	// {
+	// 	bench->rr++;
+	// 	bench->total_ops++;
+	// }
 	ft_printf("rr\n");
 }

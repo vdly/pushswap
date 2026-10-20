@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	simple(t_pslist **stacka, t_pslist **stackb)
+void	simple(t_list **stacka, t_list **stackb)
 {
-	t_pslist	*current;
-	t_pslist	*smallest;
+	t_list	*current;
+	t_list	*smallest;
 
 	while (*stacka != NULL)
 	{
@@ -41,9 +41,9 @@ void	simple(t_pslist **stacka, t_pslist **stackb)
 /*
 int main(void)
 {
-	t_pslist *stack_a;
-	t_pslist *stack_b;
-	t_pslist *curr;
+	t_list *stack_a;
+	t_list *stack_b;
+	t_list *curr;
 
 	stack_a = NULL;
 	stack_b = NULL;

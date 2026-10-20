@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 01:00:47 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:55:45 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
-void	pa(t_pslist **stacka, t_pslist **stackb)
+void	pa(t_list **stacka, t_list **stackb)
 {
 	//move the top of the stack b to stack a
-	t_pslist	*temp;
-	t_bench		*bench;
+	t_list	*temp;
+	// t_bench		*bench;
 
-	bench = get_bench();
+	// bench = get_bench();
 	if (!stackb||!*stackb)
 		return;
 	temp = (*stackb);
@@ -29,21 +28,21 @@ void	pa(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stacka,temp);
-	if (bench != NULL && bench->active == 1)//main
-	{
-		bench->pa++;
-		bench->total_ops++;
-	}
+	// if (bench != NULL && bench->active == 1)//main
+	// {
+	// 	bench->pa++;
+	// 	bench->total_ops++;
+	// }
 	ft_printf("pa\n");
 }
 
-void	pb(t_pslist **stacka, t_pslist **stackb)
+void	pb(t_list **stacka, t_list **stackb)
 {
 	//move the top of the stack a to stack b
-	t_pslist	*temp;
-	t_bench		*bench;
+	t_list	*temp;
+	// t_bench		*bench;
 
-	bench = get_bench();
+	// bench = get_bench();
 	if (!stacka||!*stacka)
 		return;
 	temp = (*stacka);
@@ -53,11 +52,11 @@ void	pb(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stackb,temp);
-	if (bench != NULL && bench->active == 1)//main
-	{
-		bench->pb++;
-		bench->total_ops++;
-	}
+	// if (bench != NULL && bench->active == 1)//main
+	// {
+	// 	bench->pb++;
+	// 	bench->total_ops++;
+	// }
 	ft_printf("pb\n");
 }
 

@@ -47,33 +47,33 @@ void	print_benchmark(t_bench *bench)
 #include "push_swap.h"
 #include <stdio.h>
 
-int main(void)
-{
-    t_bench *bench;
+// int main(void)
+// {
+//     t_bench *bench;
 
-    // 1. Get the benchmark instance
-    bench = get_bench();
+//     // 1. Get the benchmark instance
+//     bench = get_bench();
 
-    // 2. Activate the benchmark and set mock data
-    bench->active = 1;
-    bench->strategy = 2;       // Test Medium O(n√n)
-    bench->disorder = 4250;    // Represents 42.50% disorder (using our integer scale)
+//     // 2. Activate the benchmark and set mock data
+//     bench->active = 1;
+//     bench->strategy = 2;       // Test Medium O(n√n)
+//     bench->disorder = 4250;    // Represents 42.50% disorder (using our integer scale)
 
-    // 3. Simulate some operations being performed
-    bench->pa = 5;
-    bench->pb = 5;
-    bench->ra = 2;
-    bench->rb = 1;
-    bench->rra = 0;
-    bench->rrb = 0;
-    bench->rrr = 0;
-    bench->sa = 0;
-    bench->sb = 0;
-    bench->ss = 0;
-    bench->rr = 0;
+//     // 3. Simulate some operations being performed
+//     bench->pa = 5;
+//     bench->pb = 5;
+//     bench->ra = 2;
+//     bench->rb = 1;
+//     bench->rra = 0;
+//     bench->rrb = 0;
+//     bench->rrr = 0;
+//     bench->sa = 0;
+//     bench->sb = 0;
+//     bench->ss = 0;
+//     bench->rr = 0;
 
-    // 4. Print the benchmark report
-    print_benchmark(bench);
+//     // 4. Print the benchmark report
+//     print_benchmark(bench);
 
-    return (0);
-}
+//     return (0);
+// }

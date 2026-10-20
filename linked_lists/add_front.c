@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:53:18 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:13:54 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 22:34:36 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void	add_front(t_pslist **lst, t_pslist *new)
+void	add_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
@@ -25,10 +25,10 @@ void	add_front(t_pslist **lst, t_pslist *new)
 
 // int	main()
 // {
-// 	t_pslist	*head = NULL;
-// 	t_pslist	*node1 = ft_lstnew("apples");
-// 	t_pslist	*node2 = ft_lstnew("pineapple");
-// 	t_pslist	*node3 = ft_lstnew("lemons");
+// 	t_list	*head = NULL;
+// 	t_list	*node1 = ft_lstnew("apples");
+// 	t_list	*node2 = ft_lstnew("pineapple");
+// 	t_list	*node3 = ft_lstnew("lemons");
 
 // 	ft_lstadd_front(&head, node1);
 // 	printf("first node : %s\n\n", (char *)head->content);

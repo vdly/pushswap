@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 12:18:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 22:40:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ typedef struct s_list
 	struct s_list *next;
 } t_libft_list;
 
-int ft_alnum(int c);
-int ft_atoi(const char *nptr);
-void ft_bzero(void *s, size_t n);
-void *ft_calloc(size_t nmemb, size_t size);
-int ft_isalpha(int c);
-int ft_isascii(int c);
-int ft_isdigit(int c);
-int ft_isprint(int c);
-char *ft_itoa(int n);
-void ft_lstadd_back(t_libft_list **lst, t_libft_list *new);
-void ft_lstadd_front(t_libft_list **lst, t_libft_list *new);
-void ft_lstclear(t_libft_list **lst, void (*del)(void *));
-void ft_lstdelone(t_libft_list *lst, void (*del)(void *));
+int		ft_alnum(int c);
+int 	ft_atoi(const char *nptr);
+void	 ft_bzero(void *s, size_t n);
+void	 *ft_calloc(size_t nmemb, size_t size);
+int 	ft_isalpha(int c);
+int 	ft_isascii(int c);
+int 	ft_isdigit(int c);
+int	 	ft_isprint(int c);
+char	 *ft_itoa(int n);
+void	 ft_lstadd_back(t_libft_list **lst, t_libft_list *new);
+void 	ft_lstadd_front(t_libft_list **lst, t_libft_list *new);
+void 	ft_lstclear(t_libft_list **lst, void (*del)(void *));
+void 	ft_lstdelone(t_libft_list *lst, void (*del)(void *));
 void ft_lstiter(t_libft_list *lst, void (*f)(void *));
 t_libft_list *ft_lstlast(t_libft_list *lst);
 t_libft_list *ft_lstmap(t_libft_list *lst, void *(*f)(void *), void (*del)(void *));

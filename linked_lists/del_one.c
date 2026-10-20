@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 19:02:17 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:14:26 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 22:34:36 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked.h"
 
-void	del_one(t_pslist *lst)
+void	del_one(t_list *lst)
 {
 	if (!lst)
 		return ;

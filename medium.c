@@ -9,7 +9,7 @@
 /*   Updated: 2026/10/16 00:43:11 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-Chunk
+//Chunk
 //count total numbers
 //squareroot (ft_sqt)
 //assign the rank [4, 7, 8 , 10] -> 0,1,2,3...
@@ -18,7 +18,7 @@ Chunk
 
 #include "push_swap.h"
 
-static void pushchunk(t_pslist **a, t_pslist **b, int min, int max)
+void pushchunk(t_list **a, t_list **b, int min, int max)
 {
 	int pushinchunk;
 	int	target;
@@ -38,7 +38,7 @@ static void pushchunk(t_pslist **a, t_pslist **b, int min, int max)
 }
 
 //put into chunk grp 
-void	chunkpb(t_pslist **a, t_pslist **b, int totalnb, int chunk)
+void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 {
 	int	chunk_size;
 	int	i;
@@ -59,9 +59,9 @@ void	chunkpb(t_pslist **a, t_pslist **b, int totalnb, int chunk)
 	}
 }
 
-static int	getmaxposition(t_pslist *b, int *max_rank)
+int	getmaxposition(t_list *b, int *max_rank)
 {
-	t_pslist	*current;
+	t_list	*current;
 	int			max_position;
 	int			i;
 
@@ -72,7 +72,7 @@ static int	getmaxposition(t_pslist *b, int *max_rank)
 
 	while (current != NULL)
 	{
-		if ((current->rank)> *max_rank) [1, 2, 6]
+		if ((current->rank)> *max_rank)
 		{
 			*max_rank = current->rank;
 			max_position = i;
@@ -83,7 +83,7 @@ static int	getmaxposition(t_pslist *b, int *max_rank)
 	return (max_position);
 }
 
-void	chunkpa(t_pslist **a, t_pslist **b)
+void	chunkpa(t_list **a, t_list **b)
 {
 	int	max_rank;
 	int	max_position;
@@ -104,12 +104,12 @@ void	chunkpa(t_pslist **a, t_pslist **b)
 	}
 }
 
-void	medium(t_pslist **a, t_pslist **b)
+void	medium(t_list **a, t_list **b)
 {
 	unsigned int	totalnumber;
 	unsigned int	chunk;
-	t_pslist	*current;
-	t_pslist	*compare;
+	t_list	*current;
+	t_list	*compare;
 	unsigned int	count;
 	
 	totalnumber = lst_size(*a);
@@ -136,7 +136,7 @@ void	medium(t_pslist **a, t_pslist **b)
 #include <stdio.h>
 #include <stdlib.h>
 
-static void print_stack(t_pslist *lst, const char *name)
+static void print_stack(t_list *lst, const char *name)
 {
     printf("Stack %s: ", name);
     if (!lst)
@@ -154,8 +154,8 @@ static void print_stack(t_pslist *lst, const char *name)
 
 int main(void)
 {
-    t_pslist    *a;
-    t_pslist    *b;
+    t_list    *a;
+    t_list    *b;
 
     a = NULL;
     b = NULL;

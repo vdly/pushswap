@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 18:36:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:15:18 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 22:50:30 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "../push_swap.h"
 
 typedef struct ps_list
 {
 	int				number;
+	int				rank;
 	int				index;
 	struct ps_list	*prev;
 	struct ps_list	*next;
