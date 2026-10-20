@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 00:03:13 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:30:53 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ t_pslist	*lst_new(int number)
 	new->number = number;
 	new->prev = NULL;
 	new->next = NULL;
+	new->index = -1;
 	return (new);
 }

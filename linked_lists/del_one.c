@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   del_one.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 19:02:17 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 23:55:54 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:14:26 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	del_one(t_pslist *lst)
 {
 	if (!lst)
 		return ;
-	free (lst);
+	free(lst);
 }

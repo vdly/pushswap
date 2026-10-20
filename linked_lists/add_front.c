@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_front.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:53:18 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 00:02:53 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:13:54 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	add_front(t_pslist **lst, t_pslist *new)
 		return ;
 	new->next = *lst;
 	new->prev = NULL;
+	if (*lst)
+		(*lst)->prev = new;
 	*lst = new;
 }
 

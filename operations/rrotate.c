@@ -3,22 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/19 21:02:39 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 22:09:36 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
-t_pslist	*lst_last(t_pslist *lst);
-
-void	rra(t_pslist **a)
+void	rra(t_list **a)
 {
-	t_pslist	*first;
-	t_pslist	*last;
+	t_list	*first;
+	t_list	*last;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
@@ -31,10 +28,10 @@ void	rra(t_pslist **a)
 	first->prev = last;
 }
 
-void	rrb(t_pslist **b)
+void	rrb(t_list **b)
 {
-	t_pslist	*first;
-	t_pslist	*last;
+	t_list	*first;
+	t_list	*last;
 	
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -45,4 +42,26 @@ void	rrb(t_pslist **b)
 	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
+}
+
+void	rrotate(char *type, t_list **a, t_list **b)
+{
+	if (!ft_strcmp(type, "rra"))
+	{
+		rra(a);
+		ft_printf("rra\n", 4);
+	}
+	else if (!ft_strcmp(type, "rrb"))
+	{
+		rrb(b);
+		ft_printf("rrb\n");
+	}
+	else if (!ft_strcmp(type, "rrr"))
+	{
+		rra(a);
+		rrb(b);
+		ft_printf("rrr\n");
+	}
+	else
+		return ;
 }
