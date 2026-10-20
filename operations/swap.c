@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/16 17:59:49 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/19 22:19:26 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sa(t_list **a)
 		node3->prev = node1;
 }
 
-void	sa(t_list **b)
+void	sb(t_list **b)
 {
 	t_list	*node1;
 	t_list	*node2;

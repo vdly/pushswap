@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/18 08:07:15 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 20:41:12 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,15 @@ int	duplicates(char **argv, int index, long current_num)
 bool	selector(char **argv)
 {
 	if (!ft_strcmp(argv[1], "--simple"))
-	{
 		return (true);
-	}
+	else if (!ft_strcmp(argv[1], "--medium"))
+		return (true);
 	else if (!ft_strcmp(argv[1], "--complex"))
-	{
 		return (true);
-	}
 	else if (!ft_strcmp(argv[1], "--adaptive"))
-	{
 		return (true);
-	}
 	else if (!ft_strcmp(argv[1], "--bench"))
-	{
 		return (true);
-	}
 	else
 		return (false);
 }

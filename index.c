@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 23:49:19 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/16 20:32:37 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 20:04:10 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexing(t_list *stack)
+void	indexing(t_list **stack)
 {
 	t_list	*current;
 	t_list	*min_node;
@@ -20,10 +20,10 @@ void	indexing(t_list *stack)
 	int		min_num;
 
 	index = 0;
-	while (index < lst_size(stack))
+	while (index < lst_size(*stack))
 	{
 		min_num = INT_MAX;
-		current = stack;
+		current = *stack;
 		min_node = NULL;
 		while (current)
 		{

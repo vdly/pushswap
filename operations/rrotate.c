@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 19:24:23 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/14 21:56:27 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/19 22:18:45 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	rrotate(char *type, t_list **a, t_list **b)
 	if (!ft_strcmp(type, "rra"))
 	{
 		rra(a);
-		ft_printf("rra\n");
+		ft_printf("rra\n", 4);
 	}
 	else if (!ft_strcmp(type, "rrb"))
 	{

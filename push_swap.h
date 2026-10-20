@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:26:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/18 09:18:35 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 20:27:06 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,17 @@ void	parse(int argc, char **argv, t_list **stack);
 
 // indexing
 
-void	indexing(t_list *stack);
+void	indexing(t_list **stack);
 
 // complex
 
 int		count_bits(int size);
-void	radix_sort(t_list *stack_a, t_list *stack_b);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 // utils
 
 int		ft_strcmp(const char *s1, const char *s2);
 long	ft_atol(char *str);
+int		sorted(t_list *stack);
 
 #endif

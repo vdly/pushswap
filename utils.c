@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:21:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:31:18 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 20:23:06 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,16 @@ long	ft_atol(char *str)
 		i++;
 	}
 	return (result * negative);
+}
+
+int	sorted(t_list *stack)
+{
+	stack = stack->next;
+	while (stack)
+	{
+		if(stack->prev->index > stack->index)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

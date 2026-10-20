@@ -6,11 +6,11 @@
 #    By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/07 16:03:43 by jodehii          ###   ########.fr        #
+#    Updated: 2026/10/20 19:14:47 by jodehii          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap.a
+NAME	= push_swap
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 AR		= ar -rcs
@@ -42,8 +42,10 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		libft_printf/srcs/print_u.c	libft_printf/srcs/print_x.c \
 		linked_lists/add_back.c linked_lists/add_front.c \
 		linked_lists/del_one.c linked_lists/lst_clear.c \
-		linked_lists/lst_last.c linked_lists/lst_new.c \
-		linked_lists/lst_new.c linked_lists/lst_size.c
+		linked_lists/lst_last.c linked_lists/lst_new.c linked_lists/lst_size.c \
+		operations/push.c operations/rotate.c operations/rrotate.c operations/swap.c \
+		complex_algorithm/radix_sort.c index.c parse.c utils.c push_swap.c  
+		
 OBJ		= $(SRCS:.c=.o)
 
 %.o : %.c
@@ -51,8 +53,8 @@ OBJ		= $(SRCS:.c=.o)
 
 all	: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME)	:	$(OBJ)
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)
