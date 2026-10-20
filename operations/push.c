@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/19 21:14:38 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 01:00:47 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	pa(t_pslist **stacka, t_pslist **stackb)
 {
 	//move the top of the stack b to stack a
 	t_pslist	*temp;
-	
+	t_bench		*bench;
+
+	bench = get_bench();
 	if (!stackb||!*stackb)
 		return;
 	temp = (*stackb);
@@ -27,14 +29,21 @@ void	pa(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stacka,temp);
-	printf("pa\n");
+	if (bench != NULL && bench->active == 1)//main
+	{
+		bench->pa++;
+		bench->total_ops++;
+	}
+	ft_printf("pa\n");
 }
 
 void	pb(t_pslist **stacka, t_pslist **stackb)
 {
 	//move the top of the stack a to stack b
 	t_pslist	*temp;
-	
+	t_bench		*bench;
+
+	bench = get_bench();
 	if (!stacka||!*stacka)
 		return;
 	temp = (*stacka);
@@ -44,7 +53,12 @@ void	pb(t_pslist **stacka, t_pslist **stackb)
 	temp -> prev = NULL;
 	temp -> next = NULL;
 	add_front(stackb,temp);
-	printf("pb\n");
+	if (bench != NULL && bench->active == 1)//main
+	{
+		bench->pb++;
+		bench->total_ops++;
+	}
+	ft_printf("pb\n");
 }
 
 

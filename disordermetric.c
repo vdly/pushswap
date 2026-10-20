@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-t_pslist	*lst_new(int number);
-
 float	compute_disorder(t_pslist	**stacka)
 {
 	float	mistakes;
@@ -28,15 +26,15 @@ float	compute_disorder(t_pslist	**stacka)
 		return (0.0);
 	while (current != NULL)
 	{
-		nextdigit = current -> next;
+		nextdigit = current->next;
 		while (nextdigit != NULL)
 		{
 			total_pairs++;
 			if ((current->number) > (nextdigit->number))
 				mistakes++;
-			nextdigit = nextdigit -> next;
+			nextdigit = nextdigit->next;
 		}
-		current = current -> next;
+		current = current->next;
 	}
 	return (mistakes/total_pairs);
 }

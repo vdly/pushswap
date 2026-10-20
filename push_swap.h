@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:26:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/19 21:27:59 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/20 00:31:20 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ typedef struct p_list
 	struct p_list	*next;
 	struct p_list	*prev;
 }					t_pslist;
+
+typedef struct	s_bench
+{
+	int		active;
+	float	disorder
+	int		strategy;
+	int		total_ops;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+}			t_bench;
 
 void		simple(t_pslist **stacka, t_pslist **stackb);
 void		pa(t_pslist **stacka, t_pslist **stackb);

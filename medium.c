@@ -17,32 +17,28 @@ Chunk
 //pb, then pa (with checking condition (if it is under chunk 1? or chunk2...))
 
 #include "push_swap.h"
-#include <stdio.h>
 
-t_pslist	*lst_new(int number);
-unsigned int	lst_size(t_pslist *lst);
-
-static void	pushchunk(t_pslist **stacka, t_pslist **stackb, int min, int max)
+static void pushchunk(t_pslist **a, t_pslist **b, int min, int max)
 {
-	int	pushinchunk;
+	int pushinchunk;
 	int	target;
 
 	pushinchunk = 0;
 	target = max - min + 1;
-	while ((pushinchunk < target) && *stacka)
+	while ((pushinchunk < target) && *a)
 	{
-		if (((*stacka)->rank >= min) && ((*stacka)->rank) <= max)
+		if (((*a)->rank >= min) && ((*a)->rank) <= max)
 		{	
-			pb(stacka, stackb);
+			pb(a, b);
 			pushinchunk++;
 		}
 		else
-			ra(stacka);
+			ra(a);
 	}
 }
 
 //put into chunk grp 
-void	chunkpb(t_pslist **stacka, t_pslist **stackb, int totalnumber, int chunk)
+void	chunkpb(t_pslist **a, t_pslist **b, int totalnb, int chunk)
 {
 	int	chunk_size;
 	int	i;
@@ -50,26 +46,26 @@ void	chunkpb(t_pslist **stacka, t_pslist **stackb, int totalnumber, int chunk)
 	int	max_rank;
 
 	i = 0;
-	chunk_size = totalnumber / chunk; //[5/2] = 2items per chunk
+	chunk_size = totalnb / chunk;
 	while (i < chunk)
 	{
-		min_rank = i * chunk_size; //[0*2] = 0
-		if (i == chunk - 1) //0 == 1
-			max_rank = totalnumber - 1; 
+		min_rank = i * chunk_size;
+		if (i == chunk - 1)
+			max_rank = totalnb - 1;
 		else 
-			max_rank = (i + 1) * chunk_size - 1; //1 * = 1,, [0,1] 2 items
-		pushchunk(stacka, stackb, min_rank, max_rank);
+			max_rank = (i + 1) * chunk_size - 1;
+		pushchunk(a, b, min_rank, max_rank);
 		i++;
 	}
 }
 
-static int	getmaxposition(t_pslist *stackb, int *max_rank)
+static int	getmaxposition(t_pslist *b, int *max_rank)
 {
 	t_pslist	*current;
 	int			max_position;
 	int			i;
 
-	current = stackb;
+	current = b;
 	max_position = 0;
 	i = 0;
 	*max_rank = -1;
@@ -87,28 +83,28 @@ static int	getmaxposition(t_pslist *stackb, int *max_rank)
 	return (max_position);
 }
 
-void	chunkpa(t_pslist **stacka, t_pslist **stackb)
+void	chunkpa(t_pslist **a, t_pslist **b)
 {
-	int			max_rank;
-	int			max_position;
-	int			size;
+	int	max_rank;
+	int	max_position;
+	int	size;
 
-	while (*stackb)
+	while (*b)
 	{
-		max_position = getmaxposition(*stackb, &max_rank); [2]
-		size = lst_size(*stackb);
-		while (((*stackb)->rank) != max_rank)
+		max_position = getmaxposition(*b, &max_rank);
+		size = lst_size(*b);
+		while (((*b)->rank) != max_rank)
 		{
 			if (max_position <= size/2)
-				rb(stackb);
+				rb(b);
 			else 
-				rrb(stackb);
+				rrb(b);
 		}
-		pa(stacka, stackb);
+		pa(a, b);
 	}
 }
 
-void	medium(t_pslist **stacka, t_pslist **stackb)
+void	medium(t_pslist **a, t_pslist **b)
 {
 	unsigned int	totalnumber;
 	unsigned int	chunk;
@@ -116,12 +112,12 @@ void	medium(t_pslist **stacka, t_pslist **stackb)
 	t_pslist	*compare;
 	unsigned int	count;
 	
-	totalnumber = lst_size(*stacka);
+	totalnumber = lst_size(*a);
 	chunk = ft_sqt(totalnumber);
-	current = *stacka;
+	current = *a;
 	while (current != NULL) 
 	{
-		compare = *stacka;
+		compare = *a;
 		count = 0;
 		while (compare != NULL)
 		{
@@ -132,8 +128,8 @@ void	medium(t_pslist **stacka, t_pslist **stackb)
 	current->rank = count;
 	current = current->next;
 	}
-	chunkpb(stacka, stackb, totalnumber, chunk);
-	chunkpa(stacka, stackb);
+	chunkpb(a, b, totalnumber, chunk);
+	chunkpa(a, b);
 }
 
 /*
@@ -158,28 +154,28 @@ static void print_stack(t_pslist *lst, const char *name)
 
 int main(void)
 {
-    t_pslist    *stacka;
-    t_pslist    *stackb;
+    t_pslist    *a;
+    t_pslist    *b;
 
-    stacka = NULL;
-    stackb = NULL;
+    a = NULL;
+    b = NULL;
 
     // Hardcode test values into Stack A
-    add_back(&stacka, lst_new(15));
-    add_back(&stacka, lst_new(2));
-    add_back(&stacka, lst_new(42));
-    add_back(&stacka, lst_new(8));
-    add_back(&stacka, lst_new(23));
+    add_back(&a, lst_new(15));
+    add_back(&a, lst_new(2));
+    add_back(&a, lst_new(42));
+    add_back(&a, lst_new(8));
+    add_back(&a, lst_new(23));
 
     printf("=== BEFORE SORTING ===\n");
-    print_stack(stacka, "A");
+    print_stack(a, "A");
 
     // Run your chunk-sorting algorithm
-    medium(&stacka, &stackb);
+    medium(&a, &b);
 
     printf("\n=== AFTER SORTING ===\n");
-    print_stack(stacka, "A");
-    print_stack(stackb, "B");
+    print_stack(a, "A");
+    print_stack(b, "B");
 
     return (0);
 }*/

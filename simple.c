@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-#include "stdio.h"
-
-t_pslist	*lst_new(int number);
 
 void	simple(t_pslist **stacka, t_pslist **stackb)
 {
@@ -25,9 +22,9 @@ void	simple(t_pslist **stacka, t_pslist **stackb)
 		smallest = *stacka;
 		while (current != NULL)
 		{
-			if ((current -> number) < (smallest -> number))
+			if ((current->number) < (smallest->number))
 				smallest = current; 
-			current = current -> next;
+			current = current->next;
 		}
 		while (*stacka != smallest)
 		{
