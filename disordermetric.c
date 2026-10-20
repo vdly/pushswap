@@ -36,7 +36,7 @@ float	compute_disorder(t_list	**stacka)
 		}
 		current = current->next;
 	}
-	return (mistakes/total_pairs);
+	return (mistakes / total_pairs);
 }
 
 /*int main(void)
@@ -65,7 +65,8 @@ float	compute_disorder(t_list	**stacka)
 
     // Compute and print the disorder metric
     disorder_score = compute_disorder(&stack_a);
-    printf("Disorder Metric Score: %.4f (0.0 = fully sorted, 1.0 = fully reversed)\n", disorder_score);
+    printf("Disorder Metric Score: %.4f (0.0 = fully sorted, 1.0 =
+			 fully reversed)\n", disorder_score);
 
     return (0);
 }*/

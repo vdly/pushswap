@@ -6,19 +6,19 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 20:09:21 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:49:32 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstclear(t_libft_list **lst, void (*del)(void *))
+void	ft_lstclear(t_libft_list **lst, void (*del)(void *))
 {
-	t_libft_list *temp;
-	t_libft_list *next;
+	t_libft_list	*temp;
+	t_libft_list	*next;
 
 	if (!lst)
-		return;
+		return ;
 	temp = *lst;
 	while (temp != NULL)
 	{

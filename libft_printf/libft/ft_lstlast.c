@@ -6,13 +6,13 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 17:52:25 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:49:54 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_libft_list *ft_lstlast(t_libft_list *lst)
+t_libft_list	*ft_lstlast(t_libft_list *lst)
 {
 	if (!lst)
 		return (0);

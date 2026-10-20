@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:09:36 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:42:47 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	rrb(t_list **b)
 {
 	t_list	*first;
 	t_list	*last;
-	
+
 	if (!b || !*b || !(*b)->next)
 		return ;
 	first = *b;

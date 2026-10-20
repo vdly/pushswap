@@ -6,16 +6,16 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:53:18 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:51:40 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_front(t_libft_list **lst, t_libft_list *new)
+void	ft_lstadd_front(t_libft_list **lst, t_libft_list *new)
 {
 	if (!lst || !new)
-		return;
+		return ;
 	new->next = *lst;
 	*lst = new;
 }

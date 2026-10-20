@@ -9,6 +9,7 @@
 /*   Updated: 2026/10/16 00:43:11 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 //Chunk
 //count total numbers
 //squareroot (ft_sqt)
@@ -18,9 +19,9 @@
 
 #include "push_swap.h"
 
-void pushchunk(t_list **a, t_list **b, int min, int max)
+void	pushchunk(t_list **a, t_list **b, int min, int max)
 {
-	int pushinchunk;
+	int	pushinchunk;
 	int	target;
 
 	pushinchunk = 0;
@@ -28,7 +29,7 @@ void pushchunk(t_list **a, t_list **b, int min, int max)
 	while ((pushinchunk < target) && *a)
 	{
 		if (((*a)->rank >= min) && ((*a)->rank) <= max)
-		{	
+		{
 			pb(a, b);
 			pushinchunk++;
 		}
@@ -52,7 +53,7 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 		min_rank = i * chunk_size;
 		if (i == chunk - 1)
 			max_rank = totalnb - 1;
-		else 
+		else
 			max_rank = (i + 1) * chunk_size - 1;
 		pushchunk(a, b, min_rank, max_rank);
 		i++;
@@ -62,17 +63,16 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 int	getmaxposition(t_list *b, int *max_rank)
 {
 	t_list	*current;
-	int			max_position;
-	int			i;
+	int		max_position;
+	int		i;
 
 	current = b;
 	max_position = 0;
 	i = 0;
 	*max_rank = -1;
-
 	while (current != NULL)
 	{
-		if ((current->rank)> *max_rank)
+		if ((current->rank) > *max_rank)
 		{
 			*max_rank = current->rank;
 			max_position = i;
@@ -95,9 +95,9 @@ void	chunkpa(t_list **a, t_list **b)
 		size = lst_size(*b);
 		while (((*b)->rank) != max_rank)
 		{
-			if (max_position <= size/2)
+			if (max_position <= size / 2)
 				rb(b);
-			else 
+			else
 				rrb(b);
 		}
 		pa(a, b);
@@ -108,14 +108,14 @@ void	medium(t_list **a, t_list **b)
 {
 	unsigned int	totalnumber;
 	unsigned int	chunk;
-	t_list	*current;
-	t_list	*compare;
+	t_list			*current;
+	t_list			*compare;
 	unsigned int	count;
-	
+
 	totalnumber = lst_size(*a);
 	chunk = ft_sqt(totalnumber);
 	current = *a;
-	while (current != NULL) 
+	while (current != NULL)
 	{
 		compare = *a;
 		count = 0;
@@ -123,10 +123,10 @@ void	medium(t_list **a, t_list **b)
 		{
 			if ((current->number) > (compare->number))
 				count++;
-		compare = compare->next;
+			compare = compare->next;
 		}
-	current->rank = count;
-	current = current->next;
+		current->rank = count;
+		current = current->next;
 	}
 	chunkpb(a, b, totalnumber, chunk);
 	chunkpa(a, b);

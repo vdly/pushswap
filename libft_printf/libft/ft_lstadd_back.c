@@ -6,22 +6,22 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 18:17:57 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:50:31 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_libft_list **lst, t_libft_list *new)
+void	ft_lstadd_back(t_libft_list **lst, t_libft_list *new)
 {
-	t_libft_list *link;
+	t_libft_list	*link;
 
 	if (!lst || !new)
-		return;
+		return ;
 	if (*lst == NULL)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	link = *lst;
 	while (link->next != NULL)

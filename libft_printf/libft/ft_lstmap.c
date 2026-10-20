@@ -6,16 +6,17 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 17:18:31 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:52:13 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_libft_list *ft_lstmap(t_libft_list *lst, void *(*f)(void *), void (*del)(void *))
+t_libft_list	*ft_lstmap(t_libft_list *lst, void *(*f)(void *),
+					void (*del)(void *))
 {
-	t_libft_list *new;
-	t_libft_list *node;
+	t_libft_list	*new;
+	t_libft_list	*node;
 
 	if (!lst || !f)
 		return (NULL);

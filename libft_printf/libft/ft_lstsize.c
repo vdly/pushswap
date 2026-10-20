@@ -6,15 +6,15 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 14:42:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:43:17 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int ft_lstsize(t_libft_list *lst)
+unsigned int	ft_lstsize(t_libft_list *lst)
 {
-	unsigned int size;
+	unsigned int	size;
 
 	size = 0;
 	if (lst != NULL)

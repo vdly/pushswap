@@ -6,16 +6,16 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 19:02:17 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:50:59 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_libft_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_libft_list *lst, void (*del)(void *))
 {
 	if (!lst)
-		return;
+		return ;
 	del(lst->content);
 	free(lst);
 }

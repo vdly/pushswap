@@ -6,15 +6,15 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:31:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:51:25 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_libft_list *ft_lstnew(void *content)
+t_libft_list	*ft_lstnew(void *content)
 {
-	t_libft_list *new;
+	t_libft_list	*new;
 
 	new = malloc(sizeof(t_libft_list));
 	if (!new)

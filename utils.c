@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:21:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 23:29:05 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:55:36 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	sorted(t_list *stack)
 	stack = stack->next;
 	while (stack)
 	{
-		if(stack->prev->index > stack->index)
+		if (stack->prev->index > stack->index)
 			return (0);
 		stack = stack->next;
 	}

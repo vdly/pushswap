@@ -23,7 +23,7 @@ void	simple(t_list **stacka, t_list **stackb)
 		while (current != NULL)
 		{
 			if ((current->number) < (smallest->number))
-				smallest = current; 
+				smallest = current;
 			current = current->next;
 		}
 		while (*stacka != smallest)

@@ -6,16 +6,16 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 17:04:48 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/09 16:39:28 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/20 23:50:15 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_libft_list *lst, void (*f)(void *))
+void	ft_lstiter(t_libft_list *lst, void (*f)(void *))
 {
 	if (!lst)
-		return;
+		return ;
 	while (lst != NULL)
 	{
 		f(lst->content);
