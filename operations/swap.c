@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:31:13 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/21 22:09:56 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	sa(t_list **a)
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
+	t_bench	*bench;
 
+	bench = get_bench();
 	if (!a || !*a || !(*a)->next)
 		return ;
 	node1 = *a;
@@ -30,6 +32,11 @@ void	sa(t_list **a)
 	node1->next = node3;
 	if (node3)
 		node3->prev = node1;
+	if (bench != NULL && bench->active == 1)
+	{
+		bench->sa++;
+		bench->total_ops++;
+	}
 }
 
 void	sb(t_list **b)
@@ -37,7 +44,9 @@ void	sb(t_list **b)
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
+	t_bench	*bench;
 
+	bench = get_bench();
 	if (!b || !*b || !(*b)->next)
 		return ;
 	node1 = *b;
@@ -50,10 +59,18 @@ void	sb(t_list **b)
 	node1->next = node3;
 	if (node3)
 		node3->prev = node1;
+	if (bench != NULL && bench->active == 1)
+	{
+		bench->sb++;
+		bench->total_ops++;
+	}
 }
 
 void	swap(char *type, t_list **a, t_list **b)
 {
+	t_bench	*bench;
+
+	bench = get_bench();
 	if (!ft_strcmp(type, "sa"))
 	{
 		sa(a);
@@ -68,6 +85,14 @@ void	swap(char *type, t_list **a, t_list **b)
 	{
 		sa(a);
 		sb(b);
+		if (bench != NULL && bench->active == 1)
+		{
+			bench->sa--;
+			bench->sb--;
+			bench->total_ops -= 2;
+			bench->ss++;
+			bench->total_ops++;
+		}
 		ft_printf("ss\n");
 	}
 	else

@@ -63,6 +63,8 @@ long	ft_atol(char *str);
 int		sorted(t_list *stack);
 int		ft_sqt(unsigned int totalnumber);
 
+//bench 
+
 typedef struct	s_bench
 {
 	int		active;
@@ -82,6 +84,8 @@ typedef struct	s_bench
 	int		rrr;
 }			t_bench;
 
+t_bench	*get_bench(void);
+void	print_benchmark(t_bench *bench);
 
 
 

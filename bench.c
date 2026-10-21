@@ -12,68 +12,87 @@
 
 #include "push_swap.h"
 
-t_bench *get_bench(void)
+t_bench	*get_bench(void)
 {
-	static t_bench bench;
+	static t_bench	bench;
+
 	return (&bench);
+}
+
+static void	print_totalops(t_bench *bench)
+{
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("[bench] sa : ", 2);
+	ft_putnbr_fd(bench->sa, 2);
+	ft_putstr_fd(" [bench] sb : ", 2);
+	ft_putnbr_fd(bench->sb, 2);
+	ft_putstr_fd(" [bench] ss : ", 2);
+	ft_putnbr_fd(bench->ss, 2);
+	ft_putstr_fd(" [bench] pa : ", 2);
+	ft_putnbr_fd(bench->pa, 2);
+	ft_putstr_fd(" [bench] pb : ", 2);
+	ft_putnbr_fd(bench->pb, 2);
+	ft_putstr_fd("\n[bench] ra : ", 2);
+	ft_putnbr_fd(bench->ra, 2);
+	ft_putstr_fd(" [bench] rb : ", 2);
+	ft_putnbr_fd(bench->rb, 2);
+	ft_putstr_fd(" [bench] rr : ", 2);
+	ft_putnbr_fd(bench->rr, 2);
+	ft_putstr_fd(" [bench] rra : ", 2);
+	ft_putnbr_fd(bench->rra, 2);
+	ft_putstr_fd(" [bench] rrb : ", 2);
+	ft_putnbr_fd(bench->rrb, 2);
+	ft_putstr_fd("\n[bench] rrr : ", 2);
+	ft_putnbr_fd(bench->rrr, 2);
+	ft_putstr_fd("\n", 2);
 }
 
 void	print_benchmark(t_bench *bench)
 {
+	int	front;
+	int	back;
+
 	if (bench == NULL || bench->active != 1)
 		return ;
-
-	bench->total_ops = bench->sa + bench->sb + bench->ss + bench->pa + 
-					bench->pb + bench->ra + bench->rb + bench->rr + 
-					bench->rra + bench->rrb + bench->rrr;
-	ft_putstr("[bench] disorder: ", 2);
-	ft_putstr("bench->disorder", 2);
-	ft_printf("[bench] strategy: ");
+	front = (int)bench->disorder;
+	back = (int)(bench->disorder * 100) % 100;
+	ft_putstr_fd("[bench] disorder: ", 2);
+	ft_putnbr_fd(front, 2);
+	ft_putstr_fd(".", 2);
+	if (back < 10)
+		ft_putstr_fd("0", 2);
+	ft_putnbr_fd(back, 2);
+	ft_putstr_fd("%\n", 2);
+	ft_putstr_fd("[bench] strategy: ", 2);
 	if (bench->strategy == 0)
-		ft_printf("Adaptive / Auto\n");
+		ft_putstr_fd("Adaptive / Auto\n", 2);
 	if (bench->strategy == 1)
-		ft_printf("Simple O(n²)\n");
+		ft_putstr_fd("Simple / O(n²)\n", 2);
 	if (bench->strategy == 2)
-		ft_printf("Medium O(n√n)\n");
+		ft_putstr_fd("Medium / O(n√n)\n", 2);
 	if (bench->strategy == 3)
-		ft_printf("Complex O(n log n)\n");
-	ft_printf("[bench] total_ops: %d\n", bench->total_ops);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
-			bench->sa, bench->sb, bench->ss, bench->pa, bench->pb);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d, rrb: %d, rrr: %d\n",
-			bench->ra, bench->rb, bench->rr, bench->rra, bench->rrb, bench->rrr);
+		ft_putstr_fd("Complex / O(n log n)\n", 2);
+	ft_putstr_fd("[bench] total_ops: ", 2);
+	ft_putnbr_fd(bench->total_ops, 2);
+	print_totalops(bench);
 }
 
-#include "push_swap.h"
-#include <stdio.h>
+/*int	main (void)
+{
+	t_bench *bench;
+	bench = get_bench();
+	bench->active = 1;
+	bench->disorder = 14.08;
 
-// int main(void)
-// {
-//     t_bench *bench;
+	bench->strategy = 2;
 
-//     // 1. Get the benchmark instance
-//     bench = get_bench();
+	bench->total_ops = 2921;
+	bench->sa = 100; bench->sb = 45; bench->ss = 98;
+	bench->pa = 0; bench->pb = 2;
+	bench->ra = 300; bench->rb = 45; bench->rr = 98;
+	bench->rra = 1; bench->rrb = 9; bench->rrr = 987;
 
-//     // 2. Activate the benchmark and set mock data
-//     bench->active = 1;
-//     bench->strategy = 2;       // Test Medium O(n√n)
-//     bench->disorder = 4250;    // Represents 42.50% disorder (using our integer scale)
+	print_benchmark(bench);
 
-//     // 3. Simulate some operations being performed
-//     bench->pa = 5;
-//     bench->pb = 5;
-//     bench->ra = 2;
-//     bench->rb = 1;
-//     bench->rra = 0;
-//     bench->rrb = 0;
-//     bench->rrr = 0;
-//     bench->sa = 0;
-//     bench->sb = 0;
-//     bench->ss = 0;
-//     bench->rr = 0;
-
-//     // 4. Print the benchmark report
-//     print_benchmark(bench);
-
-//     return (0);
-// }
+	return(0);
+}*/

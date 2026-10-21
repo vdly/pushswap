@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:56:40 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/21 23:54:45 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,43 +26,43 @@ static void	rotate(t_list **stack)
 }
 void	ra(t_list **stacka)
 {
-	// t_bench		*bench;
+	t_bench		*bench;
 
-	// bench = get_bench();
+	bench = get_bench();
 	rotate(stacka);
-	// if (bench != NULL && bench->active == 1)//main
-	// {
-	// 	bench->ra++;
-	// 	bench->total_ops++;
-	// }
+	if (bench != NULL && bench->active == 1)//main
+	{
+		bench->ra++;
+		bench->total_ops++;
+	}
 	ft_printf("ra\n");
 }
 
 void	rb(t_list **stackb)
 {
-	// t_bench		*bench;
+	t_bench		*bench;
 
-	// bench = get_bench();
+	bench = get_bench();
 	rotate(stackb);
-	// if (bench != NULL && bench->active == 1)//main
-	// {
-	// 	bench->rb++;
-	// 	bench->total_ops++;
-	// }
+	if (bench != NULL && bench->active == 1)//main
+	{
+		bench->rb++;
+		bench->total_ops++;
+	}
 	ft_printf("rb\n");
 }
 
 void	rr(t_list **stacka, t_list **stackb)
 {
-	// t_bench		*bench;
+	t_bench		*bench;
 
-	// bench = get_bench();
+	bench = get_bench();
 	rotate(stacka);
 	rotate(stackb);
-	// if (bench != NULL && bench->active == 1)//main
-	// {
-	// 	bench->rr++;
-	// 	bench->total_ops++;
-	// }
+	if (bench != NULL && bench->active == 1)//main
+	{
+		bench->rr++;
+		bench->total_ops++;
+	}
 	ft_printf("rr\n");
 }

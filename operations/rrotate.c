@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 23:42:47 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/21 22:04:00 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	rra(t_list **a)
 {
 	t_list	*first;
 	t_list	*last;
+	t_bench	*bench;
 
+	bench = get_bench();
 	if (!a || !*a || !(*a)->next)
 		return ;
 	first = *a;
@@ -26,13 +28,20 @@ void	rra(t_list **a)
 	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
+	if (bench != NULL && bench->active == 1)
+	{
+		bench->rra++;
+		bench->total_ops++;
+	}
 }
 
 void	rrb(t_list **b)
 {
 	t_list	*first;
 	t_list	*last;
+	t_bench	*bench;
 
+	bench = get_bench();
 	if (!b || !*b || !(*b)->next)
 		return ;
 	first = *b;
@@ -42,14 +51,22 @@ void	rrb(t_list **b)
 	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
+	if (bench != NULL && bench->active == 1)
+	{
+		bench->rrb++;
+		bench->total_ops++;
+	}
 }
 
 void	rrotate(char *type, t_list **a, t_list **b)
 {
+	t_bench	*bench;
+
+	bench = get_bench();
 	if (!ft_strcmp(type, "rra"))
 	{
 		rra(a);
-		ft_printf("rra\n", 4);
+		ft_printf("rra\n");
 	}
 	else if (!ft_strcmp(type, "rrb"))
 	{
@@ -60,6 +77,14 @@ void	rrotate(char *type, t_list **a, t_list **b)
 	{
 		rra(a);
 		rrb(b);
+		if (bench != NULL && bench->active == 1)
+		{
+			bench->rra--;
+			bench->rrb--;
+			bench->total_ops -= 2;
+			bench->rrr++;
+			bench->total_ops++;
+		}
 		ft_printf("rrr\n");
 	}
 	else

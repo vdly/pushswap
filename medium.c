@@ -23,18 +23,29 @@ void	pushchunk(t_list **a, t_list **b, int min, int max)
 {
 	int	pushinchunk;
 	int	target;
+	int	scanned;
+	int	size;
 
 	pushinchunk = 0;
+	size = lst_size(*a);
+	scanned = 0;
 	target = max - min + 1;
-	while ((pushinchunk < target) && *a)
+	while (pushinchunk < target && *a)
 	{
 		if (((*a)->rank >= min) && ((*a)->rank) <= max)
 		{
 			pb(a, b);
 			pushinchunk++;
+			scanned = 0;
+			size = lst_size(*a);
 		}
 		else
+		{
 			ra(a);
+			scanned++;
+			if (scanned >= size)
+				return ;
+		}
 	}
 }
 
@@ -47,6 +58,8 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 	int	max_rank;
 
 	i = 0;
+	if (totalnb <= 0 || chunk <= 0)
+		return ;
 	chunk_size = totalnb / chunk;
 	while (i < chunk)
 	{
@@ -69,7 +82,7 @@ int	getmaxposition(t_list *b, int *max_rank)
 	current = b;
 	max_position = 0;
 	i = 0;
-	*max_rank = -1;
+	*max_rank = current->rank;
 	while (current != NULL)
 	{
 		if ((current->rank) > *max_rank)
@@ -83,6 +96,7 @@ int	getmaxposition(t_list *b, int *max_rank)
 	return (max_position);
 }
 
+
 void	chunkpa(t_list **a, t_list **b)
 {
 	int	max_rank;
@@ -93,16 +107,20 @@ void	chunkpa(t_list **a, t_list **b)
 	{
 		max_position = getmaxposition(*b, &max_rank);
 		size = lst_size(*b);
-		while (((*b)->rank) != max_rank)
+		if (max_position <= size / 2)
 		{
-			if (max_position <= size / 2)
+			while ((*b)->rank != max_rank)
 				rb(b);
-			else
-				rrb(b);
+		}
+		else
+		{
+			while ((*b)->rank != max_rank)
+				rrotate("rrb", a, b);
 		}
 		pa(a, b);
 	}
 }
+
 
 void	medium(t_list **a, t_list **b)
 {
@@ -132,50 +150,63 @@ void	medium(t_list **a, t_list **b)
 	chunkpa(a, b);
 }
 
-/*
-#include <stdio.h>
-#include <stdlib.h>
+// #include "push_swap.h"
 
-static void print_stack(t_list *lst, const char *name)
-{
-    printf("Stack %s: ", name);
-    if (!lst)
-    {
-        printf("(empty)\n");
-        return;
-    }
-    while (lst)
-    {
-        printf("[num: %d, rank: %d] ", lst->number, lst->rank);
-        lst = lst->next;
-    }
-    printf("\n");
-}
+// int main(void)
+// {
+//     t_list      *stack_a;
+//     t_list      *stack_b;
+//     t_bench     *bench;
+    
+//     // A solid mix of 20 random numbers to test chunking
+//     int         nums[] = {42, 15, 87, 2, 99, 12, 73, 56, 4, 33, 91, 8, 64, 21, 50, 5, 100, 38, 77, 19};
+//     int         i;
+//     int         total_nums;
 
-int main(void)
-{
-    t_list    *a;
-    t_list    *b;
+//     stack_a = NULL;
+//     stack_b = NULL;
+//     bench = get_bench();
 
-    a = NULL;
-    b = NULL;
+//     // 1. Activate benchmark
+//     bench->active = 1;
+//     bench->strategy = 2; // Medium sort
 
-    // Hardcode test values into Stack A
-    add_back(&a, lst_new(15));
-    add_back(&a, lst_new(2));
-    add_back(&a, lst_new(42));
-    add_back(&a, lst_new(8));
-    add_back(&a, lst_new(23));
+//     // 2. Loop through the array and build Stack A automatically
+//     total_nums = sizeof(nums) / sizeof(nums[0]);
+//     i = 0;
+//     while (i < total_nums)
+//     {
+//         add_back(&stack_a, lst_new(nums[i]));
+//         i++;
+//     }
 
-    printf("=== BEFORE SORTING ===\n");
-    print_stack(a, "A");
+//     // 3. Run your Chunk Sort algorithm
+//     medium(&stack_a, &stack_b);
 
-    // Run your chunk-sorting algorithm
-    medium(&a, &b);
+// 	    // Check final stack A
+//     printf("\nFinal stack A:\n");
+//     t_list *current = stack_a;
+//     int sorted = 1;
 
-    printf("\n=== AFTER SORTING ===\n");
-    print_stack(a, "A");
-    print_stack(b, "B");
+//     while (current)
+//     {
+//         printf("%d ", current->number);
+//         if (current->next
+//             && current->number > current->next->number)
+//             sorted = 0;
+//         current = current->next;
+//     }
+//     printf("\n");
 
-    return (0);
-}*/
+//     if (sorted && stack_b == NULL)
+//         printf("SORTED OK!\n");
+//     else
+//         printf("SORTING FAILED!\n");
+//     // 4. Print the benchmark report to stderr
+//     print_benchmark(bench);
+
+//     // 5. Free memory
+//     lst_clear(&stack_a);
+
+//     return (0);
+// }

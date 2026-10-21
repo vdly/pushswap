@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 23:25:09 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/22 00:17:50 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 	parse(argc, argv, &stack_a);
 	indexing(&stack_a);
-	t_list *temp = stack_a;
-	while (temp)
-	{
-		ft_printf("num = %d, index = %d\n", temp->number, temp->index);
-		temp = temp->next;
-	}
+	// t_list *temp = stack_a;
+	// while (temp)
+	// {
+	// 	ft_printf("num = %d, index = %d\n", temp->number, temp->index);
+	// 	temp = temp->next;
+	// }
 	selection(argv, &stack_a, &stack_b);
-	temp = stack_a;
-	while (temp)
-	{
-		ft_printf("num = %d, index = %d\n", temp->number, temp->index);
-		temp = temp->next;
-	}
+	// temp = stack_a;
+	// while (temp)
+	// {
+	// 	ft_printf("num = %d, index = %d\n", temp->number, temp->index);
+	// 	temp = temp->next;
+	// }
 	lst_clear(&stack_a);
 }
