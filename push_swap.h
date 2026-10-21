@@ -87,6 +87,11 @@ typedef struct	s_bench
 t_bench	*get_bench(void);
 void	print_benchmark(t_bench *bench);
 
+//adaptive
+void	adaptive(t_list **stacka, t_list **stackb);
+
+//disorder metric
+float	disordermetric(t_list	**stacka);
 
 
 # endif

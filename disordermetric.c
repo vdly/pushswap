@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-float	compute_disorder(t_list	**stacka)
+float	disordermetric(t_list	**stacka)
 {
 	float	mistakes;
 	float	total_pairs;

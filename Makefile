@@ -6,7 +6,7 @@
 #    By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/21 21:29:23 by ytee             ###   ########.fr        #
+#    Updated: 2026/10/22 01:01:06 by ytee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		operations/push.c operations/rotate.c operations/rrotate.c operations/swap.c \
 		complex_algorithm/radix_sort.c index.c parse.c utils.c push_swap.c simple.c \
 		medium.c \
-		bench.c 
+		bench.c \
+		adaptive.c\
+		disordermetric.c
 
 OBJ		= $(SRCS:.c=.o)
 

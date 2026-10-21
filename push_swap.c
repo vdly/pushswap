@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 00:17:50 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/22 01:15:41 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	selection(char **argv, t_list **a, t_list **b)
 		else if (!ft_strcmp(argv[1], "--complex"))
 			radix_sort(&(*a), &(*b));
 		else if (!ft_strcmp(argv[1], "--adaptive"))
-		{
-			return ;
-		}
+			adaptive(a, b);
 		else if (!ft_strcmp(argv[1], "--bench"))
 		{
 			return ;
