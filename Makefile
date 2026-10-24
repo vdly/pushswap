@@ -6,7 +6,7 @@
 #    By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/22 01:01:06 by ytee             ###   ########.fr        #
+#    Updated: 2026/10/22 17:15:16 by ytee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		medium.c \
 		bench.c \
 		adaptive.c\
-		disordermetric.c
+		disordermetric.c\
+		medium_utils.c
 
 OBJ		= $(SRCS:.c=.o)
 

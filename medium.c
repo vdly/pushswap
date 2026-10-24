@@ -19,109 +19,6 @@
 
 #include "push_swap.h"
 
-void	pushchunk(t_list **a, t_list **b, int min, int max)
-{
-	int	pushinchunk;
-	int	target;
-	int	scanned;
-	int	size;
-
-	pushinchunk = 0;
-	size = lst_size(*a);
-	scanned = 0;
-	target = max - min + 1;
-	while (pushinchunk < target && *a)
-	{
-		if (((*a)->rank >= min) && ((*a)->rank) <= max)
-		{
-			pb(a, b);
-			pushinchunk++;
-			scanned = 0;
-			size = lst_size(*a);
-		}
-		else
-		{
-			ra(a);
-			scanned++;
-			if (scanned >= size)
-				return ;
-		}
-	}
-}
-
-//put into chunk grp 
-void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
-{
-	int	chunk_size;
-	int	i;
-	int	min_rank;
-	int	max_rank;
-
-	i = 0;
-	if (totalnb <= 0 || chunk <= 0)
-		return ;
-	chunk_size = totalnb / chunk;
-	while (i < chunk)
-	{
-		min_rank = i * chunk_size;
-		if (i == chunk - 1)
-			max_rank = totalnb - 1;
-		else
-			max_rank = (i + 1) * chunk_size - 1;
-		pushchunk(a, b, min_rank, max_rank);
-		i++;
-	}
-}
-
-int	getmaxposition(t_list *b, int *max_rank)
-{
-	t_list	*current;
-	int		max_position;
-	int		i;
-
-	current = b;
-	max_position = 0;
-	i = 0;
-	*max_rank = current->rank;
-	while (current != NULL)
-	{
-		if ((current->rank) > *max_rank)
-		{
-			*max_rank = current->rank;
-			max_position = i;
-		}
-		current = current->next;
-		i++;
-	}
-	return (max_position);
-}
-
-
-void	chunkpa(t_list **a, t_list **b)
-{
-	int	max_rank;
-	int	max_position;
-	int	size;
-
-	while (*b)
-	{
-		max_position = getmaxposition(*b, &max_rank);
-		size = lst_size(*b);
-		if (max_position <= size / 2)
-		{
-			while ((*b)->rank != max_rank)
-				rb(b);
-		}
-		else
-		{
-			while ((*b)->rank != max_rank)
-				rrotate("rrb", a, b);
-		}
-		pa(a, b);
-	}
-}
-
-
 void	medium(t_list **a, t_list **b)
 {
 	unsigned int	totalnumber;
@@ -157,9 +54,9 @@ void	medium(t_list **a, t_list **b)
 //     t_list      *stack_a;
 //     t_list      *stack_b;
 //     t_bench     *bench;
-    
 //     // A solid mix of 20 random numbers to test chunking
-//     int         nums[] = {42, 15, 87, 2, 99, 12, 73, 56, 4, 33, 91, 8, 64, 21, 50, 5, 100, 38, 77, 19};
+//     int         nums[] = {42, 15, 87, 2, 99, 12, 73, 56, 4, 
+// 33, 91, 8, 64, 21, 50, 5, 100, 38, 77, 19};
 //     int         i;
 //     int         total_nums;
 

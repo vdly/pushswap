@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/22 17:32:39 by ytee              #+#    #+#             */
+/*   Updated: 2026/10/24 17:01:31 by ytee             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -21,11 +33,11 @@ void	rr(t_list **stacka, t_list **stackb);
 
 void	rra(t_list **a);
 void	rrb(t_list **b);
-void	rrotate(char *type, t_list **a, t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 void	sa(t_list **a);
 void	sa(t_list **b);
-void	swap(char *type, t_list **a, t_list **b);
+void	ss(char *type, t_list **a, t_list **b);
 
 // parse
 
@@ -49,7 +61,8 @@ void	medium(t_list **a, t_list **b);
 void	chunkpa(t_list **a, t_list **b);
 void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk);
 int		getmaxposition(t_list *b, int *max_rank);
-void 	pushchunk(t_list **a, t_list **b, int min, int max);
+void	pushchunk(t_list **a, t_list **b, int min, int max);
+int		rotate_chunk(t_list **a, int *scanned, int size);
 
 // complex
 
@@ -65,11 +78,12 @@ int		ft_sqt(unsigned int totalnumber);
 
 //bench 
 
-typedef struct	s_bench
+typedef struct s_bench
 {
 	int		active;
 	float	disorder;
 	int		strategy;
+	int		adaptive;
 	int		total_ops;
 	int		sa;
 	int		sb;
@@ -86,12 +100,11 @@ typedef struct	s_bench
 
 t_bench	*get_bench(void);
 void	print_benchmark(t_bench *bench);
+void	adaptiveauto(t_bench *bench);
 
 //adaptive
 void	adaptive(t_list **stacka, t_list **stackb);
 
 //disorder metric
 float	disordermetric(t_list	**stacka);
-
-
 # endif

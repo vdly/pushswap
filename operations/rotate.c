@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/21 23:54:45 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/22 20:51:59 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 static void	rotate(t_list **stack)
 {
 	t_list	*temp;
-	if (!stack || !*stack || !((*stack) -> next))
+
+	if (!stack || !*stack || !((*stack)->next))
 		return ;
 	temp = (*stack);
-	(*stack) = temp -> next;
-	(*stack) -> prev = NULL;
-	temp -> prev = NULL;
-	temp -> next = NULL;
-	add_back(stack,temp);
+	(*stack) = temp->next;
+	(*stack)->prev = NULL;
+	temp->prev = NULL;
+	temp->next = NULL;
+	add_back(stack, temp);
 }
+
 void	ra(t_list **stacka)
 {
-	t_bench		*bench;
+	t_bench	*bench;
 
 	bench = get_bench();
 	rotate(stacka);
-	if (bench != NULL && bench->active == 1)//main
+	if (bench != NULL && bench->active == 1)
 	{
 		bench->ra++;
 		bench->total_ops++;
@@ -40,11 +42,11 @@ void	ra(t_list **stacka)
 
 void	rb(t_list **stackb)
 {
-	t_bench		*bench;
+	t_bench	*bench;
 
 	bench = get_bench();
 	rotate(stackb);
-	if (bench != NULL && bench->active == 1)//main
+	if (bench != NULL && bench->active == 1)
 	{
 		bench->rb++;
 		bench->total_ops++;
@@ -54,12 +56,12 @@ void	rb(t_list **stackb)
 
 void	rr(t_list **stacka, t_list **stackb)
 {
-	t_bench		*bench;
+	t_bench	*bench;
 
 	bench = get_bench();
 	rotate(stacka);
 	rotate(stackb);
-	if (bench != NULL && bench->active == 1)//main
+	if (bench != NULL && bench->active == 1)
 	{
 		bench->rr++;
 		bench->total_ops++;

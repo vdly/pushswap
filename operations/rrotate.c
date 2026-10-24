@@ -6,87 +6,67 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/21 22:04:00 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/22 20:52:14 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_list **a)
+void	dorrotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
-	t_bench	*bench;
 
-	bench = get_bench();
-	if (!a || !*a || !(*a)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	first = *a;
-	last = lst_last(*a);
+	first = *stack;
+	last = lst_last(*stack);
 	last->prev->next = NULL;
-	*a = last;
+	*stack = last;
 	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
+}
+
+void	rra(t_list **a)
+{
+	t_bench	*bench;
+
+	dorrotate(a);
+	bench = get_bench();
 	if (bench != NULL && bench->active == 1)
 	{
 		bench->rra++;
 		bench->total_ops++;
 	}
+	ft_printf("rra\n");
 }
 
 void	rrb(t_list **b)
 {
-	t_list	*first;
-	t_list	*last;
 	t_bench	*bench;
 
+	dorrotate(b);
 	bench = get_bench();
-	if (!b || !*b || !(*b)->next)
-		return ;
-	first = *b;
-	last = lst_last(*b);
-	last->prev->next = NULL;
-	*b = last;
-	last->prev = NULL;
-	last->next = first;
-	first->prev = last;
 	if (bench != NULL && bench->active == 1)
 	{
 		bench->rrb++;
 		bench->total_ops++;
 	}
+	ft_printf("rrb\n");
 }
 
-void	rrotate(char *type, t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b)
 {
 	t_bench	*bench;
 
+	dorrotate(a);
+	dorrotate(b);
 	bench = get_bench();
-	if (!ft_strcmp(type, "rra"))
+	if (bench != NULL && bench->active == 1)
 	{
-		rra(a);
-		ft_printf("rra\n");
+		bench->rrr++;
+		bench->total_ops++;
 	}
-	else if (!ft_strcmp(type, "rrb"))
-	{
-		rrb(b);
-		ft_printf("rrb\n");
-	}
-	else if (!ft_strcmp(type, "rrr"))
-	{
-		rra(a);
-		rrb(b);
-		if (bench != NULL && bench->active == 1)
-		{
-			bench->rra--;
-			bench->rrb--;
-			bench->total_ops -= 2;
-			bench->rrr++;
-			bench->total_ops++;
-		}
-		ft_printf("rrr\n");
-	}
-	else
-		return ;
+	ft_printf("rrr\n");
 }

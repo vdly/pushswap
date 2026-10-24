@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/21 22:09:56 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/22 20:58:50 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,19 @@ void	sb(t_list **b)
 	}
 }
 
-void	swap(char *type, t_list **a, t_list **b)
+static void	bench_ss(t_bench *bench)
+{
+	if (bench && bench->active == 1)
+	{
+		bench->sa--;
+		bench->sb--;
+		bench->total_ops -= 2;
+		bench->ss++;
+		bench->total_ops++;
+	}
+}
+
+void	ss(char *type, t_list **a, t_list **b)
 {
 	t_bench	*bench;
 
@@ -85,14 +97,7 @@ void	swap(char *type, t_list **a, t_list **b)
 	{
 		sa(a);
 		sb(b);
-		if (bench != NULL && bench->active == 1)
-		{
-			bench->sa--;
-			bench->sb--;
-			bench->total_ops -= 2;
-			bench->ss++;
-			bench->total_ops++;
-		}
+		bench_ss(bench);
 		ft_printf("ss\n");
 	}
 	else
