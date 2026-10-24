@@ -6,7 +6,7 @@
 /*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 17:32:39 by ytee              #+#    #+#             */
-/*   Updated: 2026/10/24 17:01:31 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/24 17:15:35 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,4 @@ void	adaptive(t_list **stacka, t_list **stackb);
 
 //disorder metric
 float	disordermetric(t_list	**stacka);
-# endif
+#endif
