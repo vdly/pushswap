@@ -9,7 +9,7 @@
 /*   Updated: 2026/10/07 23:03:15 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	simple(t_list **stacka, t_list **stackb)
 {

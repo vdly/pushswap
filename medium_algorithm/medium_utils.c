@@ -9,7 +9,7 @@
 /*   Updated: 2026/10/22 17:11:46 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	rotate_chunk(t_list **a, int *scanned, int size)
 {

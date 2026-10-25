@@ -17,7 +17,7 @@
 //put them into chunk group
 //pb, then pa (with checking condition (if it is under chunk 1? or chunk2...))
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pushchunk(t_list **a, t_list **b, int min, int max)
 {

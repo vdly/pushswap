@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 20:52:14 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/25 21:58:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	dorrotate(t_list **stack)
+void	rrotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
@@ -32,7 +32,7 @@ void	rra(t_list **a)
 {
 	t_bench	*bench;
 
-	dorrotate(a);
+	rrotate(a);
 	bench = get_bench();
 	if (bench != NULL && bench->active == 1)
 	{
@@ -46,7 +46,7 @@ void	rrb(t_list **b)
 {
 	t_bench	*bench;
 
-	dorrotate(b);
+	rrotate(b);
 	bench = get_bench();
 	if (bench != NULL && bench->active == 1)
 	{
@@ -60,8 +60,8 @@ void	rrr(t_list **a, t_list **b)
 {
 	t_bench	*bench;
 
-	dorrotate(a);
-	dorrotate(b);
+	rrotate(a);
+	rrotate(b);
 	bench = get_bench();
 	if (bench != NULL && bench->active == 1)
 	{

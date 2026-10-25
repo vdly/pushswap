@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:21:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 21:53:27 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/26 01:38:50 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -23,6 +23,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		i++;
 	}
+	if (s1[i] != '\0')
+		return (1);
 	return (0);
 }
 
@@ -59,14 +61,4 @@ int	sorted(t_list *stack)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-int	ft_sqt(unsigned int totalnumber)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i * i <= totalnumber)
-		i++;
-	return (i - 1);
 }

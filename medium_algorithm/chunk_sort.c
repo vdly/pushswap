@@ -17,7 +17,17 @@
 //put them into chunk group
 //pb, then pa (with checking condition (if it is under chunk 1? or chunk2...))
 
-#include "push_swap.h"
+#include "../push_swap.h"
+
+int	ft_sqt(unsigned int totalnumber)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i * i <= totalnumber)
+		i++;
+	return (i - 1);
+}
 
 void	medium(t_list **a, t_list **b)
 {

@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 20:51:59 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/25 22:17:56 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
-	t_list	*temp;
+	t_list	*first;
+	t_list	*last;
 
 	if (!stack || !*stack || !((*stack)->next))
 		return ;
-	temp = (*stack);
-	(*stack) = temp->next;
+	first = *stack;
+	last = lst_last(*stack);
+	*stack = first->next;
 	(*stack)->prev = NULL;
-	temp->prev = NULL;
-	temp->next = NULL;
-	add_back(stack, temp);
+	first->next = NULL;
+	first->prev = last;
+	last->next = first;
 }
 
 void	ra(t_list **stacka)
@@ -68,3 +70,25 @@ void	rr(t_list **stacka, t_list **stackb)
 	}
 	ft_printf("rr\n");
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	t_list	*stack = NULL;
+
+// 	parse(argc, argv, &stack);
+// 	t_list	*temp = stack;
+// 	while (temp)
+// 	{
+// 		printf("num: %d\n", temp->number, temp->index);
+// 		temp = temp->next;
+// 	}
+// 	rotate(&stack);
+// 	temp = stack;
+// 	while (temp)
+// 	{
+// 		printf("num: %d\n", temp->number, temp->index);
+// 		temp = temp->next;
+// 	}
+// 	lst_clear(&stack);
+// 	return (0);
+// }

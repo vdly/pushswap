@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 20:09:21 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 22:42:36 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/25 22:09:33 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	lst_clear(t_list **lst)
 	while (temp != NULL)
 	{
 		next = temp->next;
-		del_one(temp);
+		free (temp);
 		temp = next;
 	}
 	*lst = NULL;

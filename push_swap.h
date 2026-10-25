@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 17:32:39 by ytee              #+#    #+#             */
-/*   Updated: 2026/10/24 17:15:35 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/26 01:11:39 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,60 +21,6 @@
 # include "libft_printf/libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
-
-// operations
-
-void	pa(t_list **stacka, t_list **stackb);
-void	pb(t_list **stacka, t_list **stackb);
-
-void	ra(t_list **stacka);
-void	rb(t_list **stackb);
-void	rr(t_list **stacka, t_list **stackb);
-
-void	rra(t_list **a);
-void	rrb(t_list **b);
-void	rrr(t_list **a, t_list **b);
-
-void	sa(t_list **a);
-void	sa(t_list **b);
-void	ss(char *type, t_list **a, t_list **b);
-
-// parse
-
-void	error(t_list **stack);
-bool	selector(char **argv);
-int		only_num(char *str);
-int		duplicates(char **argv, int index, long current_num);
-void	parse(int argc, char **argv, t_list **stack);
-
-// indexing
-
-void	indexing(t_list **stack);
-
-// simple
-
-void	simple(t_list **stacka, t_list **stackb);
-
-// medium 
-
-void	medium(t_list **a, t_list **b);
-void	chunkpa(t_list **a, t_list **b);
-void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk);
-int		getmaxposition(t_list *b, int *max_rank);
-void	pushchunk(t_list **a, t_list **b, int min, int max);
-int		rotate_chunk(t_list **a, int *scanned, int size);
-
-// complex
-
-int		count_bits(int size);
-void	radix_sort(t_list **stack_a, t_list **stack_b);
-
-// utils
-
-int		ft_strcmp(const char *s1, const char *s2);
-long	ft_atol(char *str);
-int		sorted(t_list *stack);
-int		ft_sqt(unsigned int totalnumber);
 
 //bench 
 
@@ -96,15 +42,75 @@ typedef struct s_bench
 	int		rra;
 	int		rrb;
 	int		rrr;
-}			t_bench;
+}	t_bench;
 
 t_bench	*get_bench(void);
 void	print_benchmark(t_bench *bench);
 void	adaptiveauto(t_bench *bench);
 
+// operations
+
+void	pa(t_list **stacka, t_list **stackb);
+void	pb(t_list **stacka, t_list **stackb);
+
+void	rotate(t_list **stack);
+void	ra(t_list **stacka);
+void	rb(t_list **stackb);
+void	rr(t_list **stacka, t_list **stackb);
+
+void	rrotate(t_list **stack);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
+
+void	sa(t_list **a);
+void	sb(t_list **b);
+void	bench_ss(t_bench *bench);
+void	ss(char *type, t_list **a, t_list **b);
+
+// parse
+
+void	error(t_list **stack);
+int		only_num(char *str);
+int		duplicates(char **argv, int index, long current_num);
+bool	selector(char **argv, t_list **stack);
+void	parse(int argc, char **argv, t_list **stack);
+
+// indexing
+
+void	indexing(t_list **stack);
+
+// simple
+
+void	simple(t_list **stacka, t_list **stackb);
+
+// medium 
+
+void	medium(t_list **a, t_list **b);
+void	chunkpa(t_list **a, t_list **b);
+void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk);
+int		getmaxposition(t_list *b, int *max_rank);
+void	pushchunk(t_list **a, t_list **b, int min, int max);
+int		rotate_chunk(t_list **a, int *scanned, int size);
+int		ft_sqt(unsigned int totalnumber);
+
+// complex
+
+int		count_bits(int size);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
+
+// utils
+
+int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atol(char *str);
+int		sorted(t_list *stack);
+
 //adaptive
+
 void	adaptive(t_list **stacka, t_list **stackb);
 
 //disorder metric
+
 float	disordermetric(t_list	**stacka);
+
 #endif

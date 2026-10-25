@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+         #
+#    By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/22 17:15:16 by ytee             ###   ########.fr        #
+#    Updated: 2026/10/25 23:08:35 by jodehii          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,16 +40,14 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		libft_printf/srcs/print_c.c	libft_printf/srcs/print_dec.c \
 		libft_printf/srcs/print_p.c	libft_printf/srcs/print_s.c \
 		libft_printf/srcs/print_u.c	libft_printf/srcs/print_x.c \
-		linked_lists/add_back.c linked_lists/add_front.c \
-		linked_lists/del_one.c linked_lists/lst_clear.c \
+		linked_lists/add_back.c linked_lists/add_front.c linked_lists/lst_clear.c \
 		linked_lists/lst_last.c linked_lists/lst_new.c linked_lists/lst_size.c \
 		operations/push.c operations/rotate.c operations/rrotate.c operations/swap.c \
-		complex_algorithm/radix_sort.c index.c parse.c utils.c push_swap.c simple.c \
-		medium.c \
-		bench.c \
-		adaptive.c\
-		disordermetric.c\
-		medium_utils.c
+		simple_algorithm/selection_sort.c \
+		medium_algorithm/chunk_sort.c medium_algorithm/medium_utils.c\
+		complex_algorithm/radix_sort.c complex_algorithm/radix_utils.c \
+		index.c parse.c disordermetric.c adaptive.c bench.c\
+		push_swap.c 
 
 OBJ		= $(SRCS:.c=.o)
 

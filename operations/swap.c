@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 20:58:50 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/25 23:11:08 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	sb(t_list **b)
 	}
 }
 
-static void	bench_ss(t_bench *bench)
+void	bench_ss(t_bench *bench)
 {
 	if (bench && bench->active == 1)
 	{
@@ -83,17 +83,17 @@ void	ss(char *type, t_list **a, t_list **b)
 	t_bench	*bench;
 
 	bench = get_bench();
-	if (!ft_strcmp(type, "sa"))
+	if (!ft_strncmp(type, "sa", 3))
 	{
 		sa(a);
 		ft_printf("sa\n");
 	}
-	else if (!ft_strcmp(type, "sb"))
+	else if (!ft_strncmp(type, "sb", 3))
 	{
 		sb(b);
 		ft_printf("sb\n");
 	}
-	else if (!ft_strcmp(type, "ss"))
+	else if (!ft_strncmp(type, "ss", 3))
 	{
 		sa(a);
 		sb(b);

@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/20 20:41:12 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/26 01:54:47 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int	duplicates(char **argv, int index, long current_num)
 	return (1);
 }
 
-// ft_strncmp(argv[1], "--simple") == 0 if match
-bool	selector(char **argv)
+bool	selector(char **argv, t_list **stack)
 {
 	if (!ft_strcmp(argv[1], "--simple"))
 		return (true);
@@ -63,7 +62,10 @@ bool	selector(char **argv)
 	else if (!ft_strcmp(argv[1], "--bench"))
 		return (true);
 	else
+	{
+		error(stack);
 		return (false);
+	}
 }
 
 void	parse(int argc, char **argv, t_list **stack)
@@ -71,10 +73,9 @@ void	parse(int argc, char **argv, t_list **stack)
 	int		index;
 	long	current_num;
 
-	if (selector(argv))
-		index = 2;
-	else
-		index = 1;
+	index = 1;
+	if (selector(argv, stack))
+		index++;
 	while (index < argc)
 	{
 		current_num = ft_atol(argv[index]);
