@@ -11,28 +11,26 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	adaptive(t_list **stacka, t_list **stackb)
+void	adaptive(t_list **stacka, t_list **stackb, t_bench *bench)
 {
-	t_bench	*bench;
 	float	disorder;
 
 	disorder = disordermetric(stacka);
-	bench = get_bench();
 	if (bench != NULL && bench->active == 1)
 		bench->disorder = disorder;
 	if (disorder < 0.2)
 	{
-		simple(stacka, stackb);
+		simple(stacka, stackb, bench);
 		bench->strategy = 1;
 	}
 	else if (disorder >= 0.2 && disorder < 0.5)
 	{
-		medium(stacka, stackb);
+		medium(stacka, stackb, bench);
 		bench->strategy = 2;
 	}
 	else
 	{
-		radix_sort(stacka, stackb);
+		radix_sort(stacka, stackb, bench);
 		bench->strategy = 3;
 	}
 }

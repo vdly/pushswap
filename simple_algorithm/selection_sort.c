@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-void	simple(t_list **stacka, t_list **stackb)
+void	simple(t_list **stacka, t_list **stackb, t_bench *bench)
 {
 	t_list	*current;
 	t_list	*smallest;
@@ -28,13 +28,13 @@ void	simple(t_list **stacka, t_list **stackb)
 		}
 		while (*stacka != smallest)
 		{
-			ra(stacka);
+			ra(stacka, bench);
 		}
-		pb(stacka, stackb);
+		pb(stacka, stackb, bench);
 	}
 	while (*stackb != NULL)
 	{
-		pa(stacka, stackb);
+		pa(stacka, stackb, bench);
 	}
 }
 

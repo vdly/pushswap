@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	rotate_chunk(t_list **a, int *scanned, int size)
+int	rotate_chunk(t_list **a, int *scanned, int size, t_bench *bench)
 {
-	ra(a);
+	ra(a, bench);
 	(*scanned)++;
 	if (*scanned >= size)
 		return (1);
 	return (0);
 }
 
-void	pushchunk(t_list **a, t_list **b, int min, int max)
+void	pushchunk(t_list **a, t_list **b, int min, int max, t_bench *bench)
 {
 	int	pushinchunk;
 	int	target;
@@ -35,18 +35,18 @@ void	pushchunk(t_list **a, t_list **b, int min, int max)
 	{
 		if (((*a)->rank >= min) && ((*a)->rank) <= max)
 		{
-			pb(a, b);
+			pb(a, b, bench);
 			pushinchunk++;
 			scanned = 0;
 			size = lst_size(*a);
 		}
-		else if (rotate_chunk(a, &scanned, size))
+		else if (rotate_chunk(a, &scanned, size, bench))
 			return ;
 	}
 }
 
 //put into chunk grp 
-void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
+void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk, t_bench *bench)
 {
 	int	chunk_size;
 	int	i;
@@ -64,7 +64,7 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 			max_rank = totalnb - 1;
 		else
 			max_rank = (i + 1) * chunk_size - 1;
-		pushchunk(a, b, min_rank, max_rank);
+		pushchunk(a, b, min_rank, max_rank, bench);
 		i++;
 	}
 }
@@ -92,7 +92,7 @@ int	getmaxposition(t_list *b, int *max_rank)
 	return (max_position);
 }
 
-void	chunkpa(t_list **a, t_list **b)
+void	chunkpa(t_list **a, t_list **b, t_bench *bench)
 {
 	int	max_rank;
 	int	max_position;
@@ -105,13 +105,13 @@ void	chunkpa(t_list **a, t_list **b)
 		if (max_position <= size / 2)
 		{
 			while ((*b)->rank != max_rank)
-				rb(b);
+				rb(b, bench);
 		}
 		else
 		{
 			while ((*b)->rank != max_rank)
-				rrb(b);
+				rrb(b, bench);
 		}
-		pa(a, b);
+		pa(a, b, bench);
 	}
 }

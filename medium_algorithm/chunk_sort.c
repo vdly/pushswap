@@ -29,7 +29,7 @@ int	ft_sqt(unsigned int totalnumber)
 	return (i - 1);
 }
 
-void	medium(t_list **a, t_list **b)
+void	medium(t_list **a, t_list **b, t_bench *bench)
 {
 	unsigned int	totalnumber;
 	unsigned int	chunk;
@@ -53,8 +53,8 @@ void	medium(t_list **a, t_list **b)
 		current->rank = count;
 		current = current->next;
 	}
-	chunkpb(a, b, totalnumber, chunk);
-	chunkpa(a, b);
+	chunkpb(a, b, totalnumber, chunk, bench);
+	chunkpa(a, b, bench);
 }
 
 // #include "push_swap.h"

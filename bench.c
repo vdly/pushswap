@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-t_bench	*get_bench(void)
-{
-	static t_bench	bench;
+// t_bench	*get_bench(void)
+// {
+// 	static t_bench	bench;
 
-	return (&bench);
-}
+// 	return (&bench);
+// }
 
 static void	print_totalops(t_bench *bench)
 {
@@ -58,7 +58,6 @@ static void	print_totalops(t_bench *bench)
 // 	if (bench->strategy == 3)
 // 		ft_putstr_fd("Complex / O(n log n)\n", 2);
 // }
-
 
 void	adaptiveauto(t_bench *bench)
 {

@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:46 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/25 22:17:56 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/26 04:06:19 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ void	rotate(t_list **stack)
 	last->next = first;
 }
 
-void	ra(t_list **stacka)
+void	ra(t_list **stacka, t_bench *bench)
 {
-	t_bench	*bench;
-
-	bench = get_bench();
 	rotate(stacka);
 	if (bench != NULL && bench->active == 1)
 	{
@@ -42,11 +39,8 @@ void	ra(t_list **stacka)
 	ft_printf("ra\n");
 }
 
-void	rb(t_list **stackb)
+void	rb(t_list **stackb, t_bench *bench)
 {
-	t_bench	*bench;
-
-	bench = get_bench();
 	rotate(stackb);
 	if (bench != NULL && bench->active == 1)
 	{
@@ -56,11 +50,8 @@ void	rb(t_list **stackb)
 	ft_printf("rb\n");
 }
 
-void	rr(t_list **stacka, t_list **stackb)
+void	rr(t_list **stacka, t_list **stackb, t_bench *bench)
 {
-	t_bench	*bench;
-
-	bench = get_bench();
 	rotate(stacka);
 	rotate(stackb);
 	if (bench != NULL && bench->active == 1)

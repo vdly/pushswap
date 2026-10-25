@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 17:07:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/22 17:38:38 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/26 04:05:20 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_list **stacka, t_list **stackb)
+void	pa(t_list **stacka, t_list **stackb, t_bench *bench)
 {
 	t_list	*temp;
-	t_bench	*bench;
-
-	bench = get_bench();
+	
 	if (!stackb ||!*stackb)
 		return ;
 	temp = (*stackb);
@@ -35,12 +33,10 @@ void	pa(t_list **stacka, t_list **stackb)
 	ft_printf("pa\n");
 }
 
-void	pb(t_list **stacka, t_list **stackb)
+void	pb(t_list **stacka, t_list **stackb, t_bench *bench)
 {
 	t_list	*temp;
-	t_bench	*bench;
-
-	bench = get_bench();
+	
 	if (!stacka ||!*stacka)
 		return ;
 	temp = (*stacka);
