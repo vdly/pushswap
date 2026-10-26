@@ -6,7 +6,7 @@
 #    By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/27 12:22:14 by jodehii           #+#    #+#              #
-#    Updated: 2026/10/25 23:08:35 by jodehii          ###   ########.fr        #
+#    Updated: 2026/10/27 04:20:58 by jodehii          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,10 @@ SRCS = 	libft_printf/libft/ft_isalpha.c libft_printf/libft/ft_toupper.c \
 		linked_lists/add_back.c linked_lists/add_front.c linked_lists/lst_clear.c \
 		linked_lists/lst_last.c linked_lists/lst_new.c linked_lists/lst_size.c \
 		operations/push.c operations/rotate.c operations/rrotate.c operations/swap.c \
-		simple_algorithm/selection_sort.c \
-		medium_algorithm/chunk_sort.c medium_algorithm/medium_utils.c\
-		complex_algorithm/radix_sort.c complex_algorithm/radix_utils.c \
-		index.c parse.c disordermetric.c adaptive.c bench.c\
-		push_swap.c 
+		algorithms/selection_sort.c algorithms/chunk_sort.c algorithms/medium_utils.c \
+		algorithms/radix_sort.c algorithms/adaptive.c \
+		index.c parse.c bench.c disordermetric.c utils.c \
+		push_swap.c
 
 OBJ		= $(SRCS:.c=.o)
 

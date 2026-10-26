@@ -6,44 +6,48 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/27 02:27:13 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 05:07:08 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	strategy(char **argv, t_bench *bench)
+{
+	if (!ft_strcmp(argv[1], "--simple"))
+		bench->strategy = 1;
+	else if (!ft_strcmp(argv[1], "--medium"))
+		bench->strategy = 2;
+	else if (!ft_strcmp(argv[1], "--complex"))
+		bench->strategy = 3;
+	else if (!ft_strcmp(argv[1], "--bench"))
+	{
+		bench->strategy = 4;
+		bench->adaptive = 1;
+	}
+	else
+		bench->adaptive = 1;
+}
 
 void	sort(char **argv, t_list **a, t_list **b)
 {
 	t_bench	*bench;
 
 	bench = get_bench();
-	if (!ft_strcmp(argv[1], "--simple"))
-	{
-		bench->strategy = 1;
+	strategy(argv, bench);
+	if (bench->strategy == 1)
 		simple(a, b);
-	}
-	else if (!ft_strcmp(argv[1], "--medium"))
-	{
-		bench->strategy = 2;
+	else if (bench->strategy == 2)
 		medium(a, b);
-	}
-	else if (!ft_strcmp(argv[1], "--complex"))
-	{
-		bench->strategy = 3;
+	else if (bench->strategy == 3)
 		radix_sort(a, b);
-	}
-	else if (!ft_strcmp(argv[1], "--bench"))
+	else if (bench->strategy == 4)
 	{
-		bench->strategy = 4;
-		bench->adaptive = 1;
 		adaptive(a, b);
 		print_benchmark(bench);
 	}
 	else
-	{
-		bench->adaptive = 1;
 		adaptive(a, b);
-	}
 }
 
 int	main(int argc, char **argv)

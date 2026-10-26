@@ -6,12 +6,11 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/27 02:22:08 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 04:16:28 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	error(t_list **stack)
 {
@@ -63,32 +62,6 @@ bool	selector(char **argv)
 		return (true);
 	else
 		return (false);
-}
-
-long	ft_atol(const char *str)
-{
-	long long	result;
-	int			sign;
-	int			i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if (sign == 1)
-			result = result * 10 + (str[i] - '0');
-		else
-			result = result * 10 - (str[i] - '0');
-		i++;
-	}
-	return ((long)result);
 }
 
 void	parse(int argc, char **argv, t_list **stack)

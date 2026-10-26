@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 17:32:39 by ytee              #+#    #+#             */
-/*   Updated: 2026/10/27 02:04:23 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 05:08:05 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,6 @@ int		ft_sqt(unsigned int totalnumber);
 int		count_bits(int size);
 void	radix_sort(t_list **stack_a, t_list **stack_b);
 
-// utils
-
-int		ft_strcmp(const char *s1, const char *s2);
-long	ft_atol(const char *str);
-int		sorted(t_list *stack);
-
 //adaptive
 
 void	adaptive(t_list **stacka, t_list **stackb);
@@ -112,5 +106,16 @@ void	adaptive(t_list **stacka, t_list **stackb);
 //disorder metric
 
 float	disordermetric(t_list	**stacka);
+
+// utils
+
+int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atol(const char *str);
+int		sorted(t_list *stack);
+
+// main
+
+void	strategy(char **argv, t_bench *bench);
+void	sort(char **argv, t_list **a, t_list **b);
 
 #endif
