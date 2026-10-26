@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 23:49:19 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/25 22:51:35 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 02:17:11 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	indexing(t_list **stack)
 	int		min_num;
 
 	index = 0;
+	if (!stack || !*stack)
+		return ;
 	while (index < lst_size(*stack))
 	{
 		min_num = INT_MAX;
@@ -27,7 +29,7 @@ void	indexing(t_list **stack)
 		min_node = NULL;
 		while (current)
 		{
-			if (current->index == -1 && current->number < min_num)
+			if (current->index == -1 && current->number <= min_num)
 			{
 				min_num = current->number;
 				min_node = current;

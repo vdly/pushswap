@@ -11,22 +11,24 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	rotate_chunk(t_list **a, int *scanned, int size, t_bench *bench)
+int	rotate_chunk(t_list **a, int *scanned, int size)
 {
-	ra(a, bench);
+	ra(a);
 	(*scanned)++;
 	if (*scanned >= size)
 		return (1);
 	return (0);
 }
 
-void	pushchunk(t_list **a, t_list **b, int min, int max, t_bench *bench)
+void	pushchunk(t_list **a, t_list **b, int min, int max)
 {
-	int	pushinchunk;
-	int	target;
-	int	scanned;
-	int	size;
+	int		pushinchunk;
+	int		target;
+	int		scanned;
+	int		size;
+	t_bench	*bench;
 
+	bench = get_bench();
 	pushinchunk = 0;
 	size = lst_size(*a);
 	scanned = 0;
@@ -35,24 +37,26 @@ void	pushchunk(t_list **a, t_list **b, int min, int max, t_bench *bench)
 	{
 		if (((*a)->rank >= min) && ((*a)->rank) <= max)
 		{
-			pb(a, b, bench);
+			pb(a, b);
 			pushinchunk++;
 			scanned = 0;
 			size = lst_size(*a);
 		}
-		else if (rotate_chunk(a, &scanned, size, bench))
+		else if (rotate_chunk(a, &scanned, size))
 			return ;
 	}
 }
 
 //put into chunk grp 
-void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk, t_bench *bench)
+void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 {
-	int	chunk_size;
-	int	i;
-	int	min_rank;
-	int	max_rank;
+	int		chunk_size;
+	int		i;
+	int		min_rank;
+	int		max_rank;
+	t_bench	*bench;
 
+	bench = get_bench();
 	i = 0;
 	if (totalnb <= 0 || chunk <= 0)
 		return ;
@@ -64,7 +68,7 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk, t_bench *bench)
 			max_rank = totalnb - 1;
 		else
 			max_rank = (i + 1) * chunk_size - 1;
-		pushchunk(a, b, min_rank, max_rank, bench);
+		pushchunk(a, b, min_rank, max_rank);
 		i++;
 	}
 }
@@ -92,12 +96,14 @@ int	getmaxposition(t_list *b, int *max_rank)
 	return (max_position);
 }
 
-void	chunkpa(t_list **a, t_list **b, t_bench *bench)
+void	chunkpa(t_list **a, t_list **b)
 {
-	int	max_rank;
-	int	max_position;
-	int	size;
+	int		max_rank;
+	int		max_position;
+	int		size;
+	t_bench	*bench;
 
+	bench = get_bench();
 	while (*b)
 	{
 		max_position = getmaxposition(*b, &max_rank);
@@ -105,13 +111,13 @@ void	chunkpa(t_list **a, t_list **b, t_bench *bench)
 		if (max_position <= size / 2)
 		{
 			while ((*b)->rank != max_rank)
-				rb(b, bench);
+				rb(b);
 		}
 		else
 		{
 			while ((*b)->rank != max_rank)
-				rrb(b, bench);
+				rrb(b);
 		}
-		pa(a, b, bench);
+		pa(a, b);
 	}
 }

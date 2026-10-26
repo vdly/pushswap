@@ -6,18 +6,20 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:51:49 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/26 04:08:11 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 00:16:59 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sa(t_list **a, t_bench *bench)
+void	sa(t_list **a)
 {
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
-	
+	t_bench	*bench;
+
+	bench = get_bench();
 	if (!a || !*a || !(*a)->next)
 		return ;
 	node1 = *a;
@@ -37,12 +39,14 @@ void	sa(t_list **a, t_bench *bench)
 	}
 }
 
-void	sb(t_list **b, t_bench *bench)
+void	sb(t_list **b)
 {
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
-	
+	t_bench	*bench;
+
+	bench = get_bench();
 	if (!b || !*b || !(*b)->next)
 		return ;
 	node1 = *b;
@@ -74,22 +78,25 @@ void	bench_ss(t_bench *bench)
 	}
 }
 
-void	ss(char *type, t_list **a, t_list **b, t_bench *bench)
+void	ss(char *type, t_list **a, t_list **b)
 {
+	t_bench	*bench;
+
+	bench = get_bench();
 	if (!ft_strncmp(type, "sa", 3))
 	{
-		sa(a, bench);
+		sa(a);
 		ft_printf("sa\n");
 	}
 	else if (!ft_strncmp(type, "sb", 3))
 	{
-		sb(b, bench);
+		sb(b);
 		ft_printf("sb\n");
 	}
 	else if (!ft_strncmp(type, "ss", 3))
 	{
-		sa(a, bench);
-		sb(b, bench);
+		sa(a);
+		sb(b);
 		bench_ss(bench);
 		ft_printf("ss\n");
 	}

@@ -6,16 +6,17 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/26 04:29:15 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 02:22:08 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	error(t_list **stack)
 {
 	lst_clear(stack);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 
@@ -37,19 +38,18 @@ int	only_num(char *str)
 	return (1);
 }
 
-int	duplicates(char **argv, int index, long current_num)
+int	duplicates(t_list *stack, long current_num)
 {
-	index++;
-	while (argv[index])
+	while (stack)
 	{
-		if (current_num == ft_atol(argv[index]))
+		if ((long)stack->number == current_num)
 			return (0);
-		index++;
+		stack = stack->next;
 	}
 	return (1);
 }
 
-bool	selector(char **argv, t_list **stack)
+bool	selector(char **argv)
 {
 	if (!ft_strcmp(argv[1], "--simple"))
 		return (true);
@@ -62,10 +62,33 @@ bool	selector(char **argv, t_list **stack)
 	else if (!ft_strcmp(argv[1], "--bench"))
 		return (true);
 	else
-	{
-		error(stack);
 		return (false);
+}
+
+long	ft_atol(const char *str)
+{
+	long long	result;
+	int			sign;
+	int			i;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		if (sign == 1)
+			result = result * 10 + (str[i] - '0');
+		else
+			result = result * 10 - (str[i] - '0');
+		i++;
+	}
+	return ((long)result);
 }
 
 void	parse(int argc, char **argv, t_list **stack)
@@ -74,18 +97,20 @@ void	parse(int argc, char **argv, t_list **stack)
 	long	current_num;
 
 	index = 1;
-	if (selector(argv, stack))
+	if (!argv || !*argv)
+		return ;
+	if (selector(argv))
 		index++;
 	while (index < argc)
 	{
-		current_num = ft_atol(argv[index]);
 		if (!only_num(argv[index]))
 			error(stack);
-		if (!duplicates(argv, index, current_num))
-			error(stack);
+		current_num = ft_atol(argv[index]);
 		if (current_num < INT_MIN || current_num > INT_MAX)
 			error(stack);
-		add_back(stack, lst_new(ft_atoi(argv[index])));
+		if (!duplicates(*stack, current_num))
+			error(stack);
+		add_back(stack, lst_new((int)current_num));
 		index++;
 	}
 }

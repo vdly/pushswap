@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-// t_bench	*get_bench(void)
-// {
-// 	static t_bench	bench;
+t_bench	*get_bench(void)
+{
+	static t_bench	bench;
 
-// 	return (&bench);
-// }
+	return (&bench);
+}
 
 static void	print_totalops(t_bench *bench)
 {

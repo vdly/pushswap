@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-void	simple(t_list **stacka, t_list **stackb, t_bench *bench)
+void	simple(t_list **stacka, t_list **stackb)
 {
 	t_list	*current;
 	t_list	*smallest;
+	t_bench	*bench;
 
+	bench = get_bench();
 	while (*stacka != NULL)
 	{
 		current = *stacka;
@@ -28,13 +30,13 @@ void	simple(t_list **stacka, t_list **stackb, t_bench *bench)
 		}
 		while (*stacka != smallest)
 		{
-			ra(stacka, bench);
+			ra(stacka);
 		}
-		pb(stacka, stackb, bench);
+		pb(stacka, stackb);
 	}
 	while (*stackb != NULL)
 	{
-		pa(stacka, stackb, bench);
+		pa(stacka, stackb);
 	}
 }
 

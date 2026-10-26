@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 23:38:15 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/26 04:21:07 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 00:31:01 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ int	count_bits(int size)
 	return (i);
 }
 
-void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *bench)
+void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
-	int	bits;
-	int	size;
-	int	bit_pos;
-	int	i;
+	int		bits;
+	int		size;
+	int		bit_pos;
+	int		i;
+	t_bench	*bench;
 
+	bench = get_bench();
 	size = lst_size(*stack_a);
 	bits = count_bits(size - 1);
 	bit_pos = 0;
@@ -38,13 +40,13 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, t_bench *bench)
 		while (i < size)
 		{
 			if (((*stack_a)->index >> bit_pos) & 1)
-				ra(stack_a, bench);
+				ra(stack_a);
 			else
-				pb(stack_a, stack_b, bench);
+				pb(stack_a, stack_b);
 			i++;
 		}
 		while (*stack_b)
-			pa(stack_a, stack_b, bench);
+			pa(stack_a, stack_b);
 		bit_pos++;
 	}
 }

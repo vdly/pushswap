@@ -6,7 +6,7 @@
 /*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:21:40 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/26 01:38:50 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 01:47:55 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,28 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-long	ft_atol(char *str)
-{
-	int		i;
-	long	result;
-	int		negative;
+// long	ft_atol(char *str)
+// {
+// 	int			i;
+// 	long long	result;
+// 	int			negative;
 
-	i = 0;
-	result = 0;
-	negative = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			negative = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * negative);
-}
+// 	i = 0;
+// 	result = 0;
+// 	negative = 1;
+// 	if (str[i] == '-' || str[i] == '+')
+// 	{
+// 		if (str[i] == '-')
+// 			negative = -1;
+// 		i++;
+// 	}
+// 	while (str[i] >= '0' && str[i] <= '9')
+// 	{
+// 		result = (result * 10) + (str[i] - '0');
+// 		i++;
+// 	}
+// 	return ((long)(result * negative));
+// }
 
 int	sorted(t_list *stack)
 {
