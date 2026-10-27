@@ -15,9 +15,7 @@ void	simple(t_list **stacka, t_list **stackb)
 {
 	t_list	*current;
 	t_list	*smallest;
-	t_bench	*bench;
 
-	bench = get_bench();
 	while (*stacka != NULL)
 	{
 		current = *stacka;

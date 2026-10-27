@@ -70,6 +70,8 @@ void	adaptiveauto(t_bench *bench)
 			ft_putstr_fd("O(n√n)\n", 2);
 		else if (bench->strategy == 3)
 			ft_putstr_fd("O(n log n)\n", 2);
+		else
+			ft_putstr_fd("Is_Sorted\n", 2);
 	}
 	else
 	{
@@ -79,6 +81,8 @@ void	adaptiveauto(t_bench *bench)
 			ft_putstr_fd("Medium O(n√n)\n", 2);
 		else if (bench->strategy == 3)
 			ft_putstr_fd("Complex O(n log n)\n", 2);
+		else
+			ft_putstr_fd("Sorted\n", 2);
 	}
 }
 

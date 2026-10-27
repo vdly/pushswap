@@ -3,38 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/27 05:07:08 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 18:45:27 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	strategy(char **argv, t_bench *bench)
+void	strategy(int argc, char **argv, t_bench *bench)
 {
-	if (!ft_strcmp(argv[1], "--simple"))
-		bench->strategy = 1;
-	else if (!ft_strcmp(argv[1], "--medium"))
-		bench->strategy = 2;
-	else if (!ft_strcmp(argv[1], "--complex"))
-		bench->strategy = 3;
-	else if (!ft_strcmp(argv[1], "--bench"))
+	int	i;
+
+	i = 1;
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		bench->strategy = 4;
-		bench->adaptive = 1;
+		if (ft_strcmp(argv[i], "--simple") == 0)
+			bench->strategy = 1;
+		else if (ft_strcmp(argv[i], "--medium") == 0)
+			bench->strategy = 2;
+		else if (ft_strcmp(argv[i], "--complex") == 0)
+			bench->strategy = 3;
+		else if (ft_strcmp(argv[i], "--adaptive") == 0)
+		{
+			bench->strategy = 4;
+			bench->adaptive = 1;
+		}
+		else if (ft_strcmp(argv[i], "--bench") == 0)
+			bench->active = 1;
+		i++;
 	}
-	else
-		bench->adaptive = 1;
 }
 
-void	sort(char **argv, t_list **a, t_list **b)
+void	sort(t_list **a, t_list **b)
 {
 	t_bench	*bench;
 
 	bench = get_bench();
-	strategy(argv, bench);
 	if (bench->strategy == 1)
 		simple(a, b);
 	else if (bench->strategy == 2)
@@ -48,6 +54,8 @@ void	sort(char **argv, t_list **a, t_list **b)
 	}
 	else
 		adaptive(a, b);
+	if (bench->active == 1)
+		print_benchmark(bench);
 }
 
 int	main(int argc, char **argv)
@@ -62,13 +70,16 @@ int	main(int argc, char **argv)
 	ft_bzero(bench, sizeof(t_bench));
 	if (argc < 2)
 		return (0);
+	strategy(argc, argv, bench);
 	parse(argc, argv, &stack_a);
-	if (argv[1][0] == '-' && argv[1][1] == '-')
-		bench->active = 1;
+	//if (argv[1][0] == '-' && argv[1][1] == '-')
+		//bench->active = 1;
 	indexing(&stack_a);
 	bench->disorder = disordermetric(&stack_a);
 	if (!sorted(stack_a))
-		sort(argv, &stack_a, &stack_b);
+		sort(&stack_a, &stack_b);
+	else if (sorted(stack_a) && bench->active == 1)
+		print_benchmark (bench);
 	lst_clear(&stack_a);
 	return (0);
 }

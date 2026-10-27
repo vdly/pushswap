@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 17:32:39 by ytee              #+#    #+#             */
-/*   Updated: 2026/10/27 05:08:05 by jodehii          ###   ########.fr       */
+/*   Updated: 2026/10/27 18:34:34 by ytee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int		sorted(t_list *stack);
 
 // main
 
-void	strategy(char **argv, t_bench *bench);
-void	sort(char **argv, t_list **a, t_list **b);
+void	strategy(int argc, char **argv, t_bench *bench);
+void	sort(t_list **a, t_list **b);
 
 #endif

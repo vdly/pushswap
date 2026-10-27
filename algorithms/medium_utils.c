@@ -26,9 +26,7 @@ void	pushchunk(t_list **a, t_list **b, int min, int max)
 	int		target;
 	int		scanned;
 	int		size;
-	t_bench	*bench;
 
-	bench = get_bench();
 	pushinchunk = 0;
 	size = lst_size(*a);
 	scanned = 0;
@@ -54,9 +52,7 @@ void	chunkpb(t_list **a, t_list **b, int totalnb, int chunk)
 	int		i;
 	int		min_rank;
 	int		max_rank;
-	t_bench	*bench;
 
-	bench = get_bench();
 	i = 0;
 	if (totalnb <= 0 || chunk <= 0)
 		return ;
@@ -101,9 +97,7 @@ void	chunkpa(t_list **a, t_list **b)
 	int		max_rank;
 	int		max_position;
 	int		size;
-	t_bench	*bench;
 
-	bench = get_bench();
 	while (*b)
 	{
 		max_position = getmaxposition(*b, &max_rank);
