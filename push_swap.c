@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 09:20:16 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/27 18:45:27 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/27 21:05:10 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ int	main(int argc, char **argv)
 		return (0);
 	strategy(argc, argv, bench);
 	parse(argc, argv, &stack_a);
-	//if (argv[1][0] == '-' && argv[1][1] == '-')
-		//bench->active = 1;
 	indexing(&stack_a);
 	bench->disorder = disordermetric(&stack_a);
 	if (!sorted(stack_a))

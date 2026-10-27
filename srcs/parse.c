@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytee <ytee@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: jodehii <jodehii@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 18:06:42 by jodehii           #+#    #+#             */
-/*   Updated: 2026/10/27 18:38:52 by ytee             ###   ########.fr       */
+/*   Updated: 2026/10/27 20:50:59 by jodehii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ bool	selector(char **argv)
 		return (false);
 }
 
+// or selector(argv[index]) depending on your selector design
 void	parse(int argc, char **argv, t_list **stack)
 {
 	int		index;
@@ -74,7 +75,7 @@ void	parse(int argc, char **argv, t_list **stack)
 		return ;
 	while (index < argc && argv[index][0] == '-' && argv[index][1] == '-')
 	{
-		if (selector(argv)) // or selector(argv[index]) depending on your selector design
+		if (selector(argv))
 			index++;
 		else
 			error(stack);

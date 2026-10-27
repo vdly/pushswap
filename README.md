@@ -72,3 +72,7 @@ Radix sort is a non-comparative integer sorting algorithm that processes digits 
 * https://www.geeksforgeeks.org/c/c-program-for-radix-sort/
 * https://www.programiz.com/dsa/radix-sort
 * https://www.desmos.com/calculator/pqjldgfele
+
+### Contributions
+* Jodene - Complex Algorithm, Indexing, Parsing, Main Function, Doubly Linked List, Operations
+* Yining - Simple Algorithm, Medium Algorithm, Adaptive Algorithm, Bench, Disorder Metric, Operations
